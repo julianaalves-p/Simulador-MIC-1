@@ -13,10 +13,13 @@ public class ALU
                 break;
             case AND:
                 result = (short) (bus_A & bus_B);
+                break;
             case PASS_A:
                 result = bus_A;
+                break;
             case INV_A:
                 result = (short) (~bus_A);
+                break;
             default:
                 break;
         }
