@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import Dicio;
 
 public class Assembler {
     public List<String> assemble(String assemblyCode) {
