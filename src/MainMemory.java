@@ -20,4 +20,7 @@ public class MainMemory {
     public void setManual(int addr, int value) {
         memory[(short)addr] = (short)value;
     }
+    public short getManual(int addr) { //
+        return memory[(short)addr]; //
+    }
 }
