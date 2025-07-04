@@ -38,7 +38,7 @@ public class CPU {
         registers[15] = new Register("F", (short) 0);
         
         MAR = new Register("MAR", (short)0);
-        MBR = new Register("MAR", (short)0);
+        MBR = new Register("MBR", (short)0); // mudei aqui pq tava repetindo o MAR
         
         MP = new MainMemory();
         controlMemory = FileParser.getControlMemory();
