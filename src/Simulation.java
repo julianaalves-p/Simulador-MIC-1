@@ -6,6 +6,36 @@ public class Simulation {
         for (int cell : cpu.controlMemory) {
             System.out.println(cell);
         }
-        cpu.registers[2].printValue();
+
+        cpu.MP.setManual(0, 10);
+        cpu.MP.setManual(1, 20);
+        cpu.MP.setManual(2, 30);
+        cpu.MP.setManual(3, 40);
+        cpu.MP.setManual(4, 50);
+
+        System.out.println("Clock subcycle: " + cpu.clock.get());
+
+        cpu.runFirstSubcycle();
+        cpu.registers[3].printValue();
+        
+        System.out.println("Clock subcycle: " + cpu.clock.get());
+
+        cpu.runFirstSubcycle();
+        cpu.registers[3].printValue();
+
+        System.out.println("Clock subcycle: " + cpu.clock.get());
+
+        cpu.runFirstSubcycle();
+        cpu.registers[3].printValue();
+
+        System.out.println("Clock subcycle: " + cpu.clock.get());
+
+        cpu.runFirstSubcycle();
+        cpu.registers[3].printValue();
+
+        System.out.println("Clock subcycle: " + cpu.clock.get());
+
+        cpu.runFirstSubcycle();
+        cpu.registers[3].printValue();
     }
 }

@@ -8,12 +8,16 @@ public class CPU {
     short busLine_B;
     short busLine_C;
     // Registradores, Memória principal e ALU
+    Clock clock;
     Register [] registers;
+    Register MAR;
+    Register MBR;
     MainMemory MP;
     int [] controlMemory;
     ALU alu;
 
     public CPU() {
+        clock = new Clock();
         registers = new Register[16];
 
         registers[0] = new Register("PC", (short) 0);
@@ -33,12 +37,27 @@ public class CPU {
         registers[14] = new Register("E", (short) 0);
         registers[15] = new Register("F", (short) 0);
         
-        Register MAR = new Register("MAR", (short)0);
-        Register MBR = new Register("MAR", (short)0);
+        MAR = new Register("MAR", (short)0);
+        MBR = new Register("MAR", (short)0);
         
         MP = new MainMemory();
         controlMemory = FileParser.getControlMemory();
         alu = new ALU();
-    }    
-    
+    }
+    public void runFirstSubcycle() {
+        busLine_B = registers[0].get();
+        MAR.set(busLine_B);
+        MP.readFromMemory(MAR, MBR);
+        busLine_C = MBR.get();
+        registers[3].set(busLine_C); // IR := mbr
+        busLine_A = registers[0].get();
+        busLine_B = registers[6].get();
+        alu.execute(ALU.ADD, busLine_B, busLine_A);
+        busLine_C = alu.get();
+        registers[0].set(busLine_C);
+        clock.increment();
+    }
+    public void runSecondSubcycle() {
+        
+    }
 }

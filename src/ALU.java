@@ -35,7 +35,7 @@ public class ALU
         }
     }
 
-    public short getValue() {
+    public short get() {
         return this.result;
     }
 }
