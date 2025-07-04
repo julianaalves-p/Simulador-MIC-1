@@ -6,13 +6,16 @@ public class Register {
         this.name = name;
         this.value = 0;
     }
-    public int getValue() {
+    public short getValue() {
         return this.value;
     }
-    public void setValue(int value) {
+    public void setValue(short value) {
         this.value = (short)value;
     }
     public String getName() {
         return this.name;
+    }
+    public void printValue() {
+        System.out.println(this.name + ": " + this.value);
     }
 }

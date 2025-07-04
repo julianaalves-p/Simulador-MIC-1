@@ -1,32 +1,34 @@
 public class ALU 
-{
-    public enum Opcode {ADD, AND, PASS_A, INV_A};
-    
+{   
     private short result;
 
-    public short execute(Opcode operation, short bus_A, short bus_B)
+    public static byte ADD = 0b00;
+    public static byte AND = 0b01;
+    public static byte PASS_A = 0b10;
+    public static byte INV_A = 0b11;
+
+    public void execute(byte operation, short bus_A, short bus_B)
     {
-        result = 0;
+        this.result = 0;
         switch (operation) {
-            case ADD:
-                result = (short) (bus_A + bus_B);
+            case 0b00:
+                this.result = (short) (bus_A + bus_B);
                 break;
-            case AND:
-                result = (short) (bus_A & bus_B);
+            case 0b01:
+                this.result = (short) (result & bus_B);
                 break;
-            case PASS_A:
-                result = bus_A;
+            case 0b10:
+                this.result = bus_A;
                 break;
-            case INV_A:
-                result = (short) (~bus_A);
+            case 0b11:
+                this.result = (short) (~bus_A);
                 break;
             default:
                 break;
         }
-        return result;
+    }
+
+    public short getValue() {
+        return this.result;
     }
 }
-
-/*
-
-*/
