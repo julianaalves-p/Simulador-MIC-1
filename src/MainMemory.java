@@ -4,6 +4,7 @@ public class MainMemory {
     private short addressLatch;
     private boolean readEnable;
     private boolean writeEnable;
+    private short manualSetPointer;
 
     /* Inicializa memory com todos os espaços zerados */
     public MainMemory() {
@@ -12,6 +13,7 @@ public class MainMemory {
         }
         this.readEnable = false;
         this.writeEnable = false;
+        this.manualSetPointer = 0;
     }
     /* Lê um dado da memória utilizando o endereço do MAR e coloca no MBR */
     public void readFromMemory(Register MBR) {
@@ -33,12 +35,6 @@ public class MainMemory {
         this.memory[addressLatch] = MBR.get();
         this.writeEnable = false;
     }
-    public void setManual(int addr, int value) {
-        memory[(short)addr] = (short)value;
-    }
-    public short getManual(int addr) { //
-        return memory[(short)addr]; //
-    }
     public boolean isReadEnabled() {
         return this.readEnable;
     }
@@ -52,5 +48,17 @@ public class MainMemory {
     public void enableWrite(Register MAR) {
         this.addressLatch = (short)(MAR.get() & 0x0FFF);;
         this.writeEnable = true;
+    }
+
+    // Funções de inicialização manual
+    public void setManual(int addr, int value) {
+        memory[(short)addr] = (short)value;
+    }
+    public short getManual(int addr) { //
+        return memory[(short)addr]; //
+    }
+    public void add(int value) {
+        memory[manualSetPointer] = (short)value;
+        this.manualSetPointer++;
     }
 }

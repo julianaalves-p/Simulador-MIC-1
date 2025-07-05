@@ -1,6 +1,10 @@
 // import java.util.List;
 // import java.util.ArrayList;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class CPU {
 
     /* Barramentos A , B e C 
@@ -28,7 +32,7 @@ public class CPU {
 
         registers[0] = new Register("PC", (short) 0);
         registers[1] = new Register("AC", (short) 0);
-        registers[2] = new Register("SP", (short) 4095);
+        registers[2] = new Register("SP", (short) 4096);
         registers[3] = new Register("IR", (short) 0);
         registers[4] = new Register("TIR", (short) 0);
         registers[5] = new Register("0", (short) 0);
@@ -118,70 +122,20 @@ public class CPU {
         clock.increment();
     }
 
-    public void run(short numOfcycles) {
+    public void run() {
         boolean running = true;
-        int i = 0;
         while (running) {
-            printCPUState();
+            // printCPUState();
             runFirstSubcycle();
             runSecondSubcycle();
             runThirdSubcycle();
             runFourthSubcycle();
             clock.incrementCounter();
-            i++;
-            if (registers[3].get() == 0xFFFF || i > numOfcycles) {
+            if (registers[3].get() == -1) {
+                // printCPUState();
                 running = false;
             }
         }
-    }
-
-    public void printCPUState() {
-        System.out.println("\n---------- CPU STATE ----------");
-        System.out.printf("--- Clock %d ---\n", clock.getClockCounter());
-        System.out.println("Sub-cycle: " + clock.get());
-
-        System.out.println("\n--- Control Registers ---");
-        System.out.println("MPC: " + MPC.get());
-        System.out.printf("MIR: (%d)\n", MIR.get()); // Imprime em Hex e Decimal
-        System.out.println("MAR: " + MAR.get());
-        System.out.println("MBR: " + MBR.get());
-
-        System.out.println("\n--- Internal Latches & Buses ---");
-        System.out.println("Latch A: " + latch_A);
-        System.out.println("Latch B: " + latch_B);
-        System.out.println("Bus C (Shifter Out): " + shifter.getOuput()); // Supondo que Shifter tenha um método get()
-
-        System.out.println("\n--- ALU State ---");
-        System.out.println("ALU Out: " + alu.getOutput());
-
-        System.out.println("\n--- Main Registers ---");
-        for (int i = 0; i < registers.length; i++) {
-            // Imprime em duas colunas para melhor visualização
-            System.out.printf("  %-5s: %-6d", registers[i].getName(), registers[i].get());
-            if (i % 2 != 0) {
-                System.out.println();
-            }
-        }
-        printMIRFields();
-        System.out.println("---------------------------------\n");
-    }
-
-    // Funções de decode dos campos da microinstrução
-    public void printMIRFields() {
-        System.out.println("Current Microinstruction Fields:");
-        System.out.println("ADDR: " + get_ADDR_Field());
-        System.out.println("BUS_A: " + get_BUSA_Field());
-        System.out.println("BUS_B: " + get_BUSB_Field());
-        System.out.println("BUS_C: " + get_BUSC_Field());
-        System.out.println("EN_C: " + get_ENC_Field());
-        System.out.println("WR: " + get_WR_Field());
-        System.out.println("RD: " + get_RD_Field());
-        System.out.println("MAR: " + get_MAR_Field());
-        System.out.println("MBR: " + get_MBR_Field());
-        System.out.println("SHIFTER: " + get_SHIFTER_Field());
-        System.out.println("ALU: " + get_ALU_Field());
-        System.out.println("COND: " + get_COND_Field());
-        System.out.println("AMUX: " + get_AMUX_Field());
     }
 
     public void calculateNextMPC() {
@@ -209,7 +163,6 @@ public class CPU {
                 break;
 
             default:
-                MPC.set((short)(MPC.get() + 1));
                 break;
         }
         MPC.set(nextMPC);
@@ -257,5 +210,59 @@ public class CPU {
     }
     public byte get_AMUX_Field() {
         return (byte)getMicroInstructionField(31, 0x000001);
+    }
+
+    // print functions
+
+    public void printCPUState() {
+
+    System.out.println("\n---------- CPU STATE ----------");
+    System.out.printf("--- Clock %d ---\n", clock.getClockCounter());
+    System.out.println("Sub-cycle: " + clock.get());
+
+    System.out.println("\n--- Control Registers ---");
+    System.out.println("MPC: " + MPC.get());
+    System.out.printf("MIR: (%d)\n", MIR.get());
+    System.out.println("MAR: " + MAR.get());
+    System.out.println("MBR: " + MBR.get());
+
+    System.out.println("\n--- Internal Latches & Buses ---");
+    System.out.println("Latch A: " + latch_A);
+    System.out.println("Latch B: " + latch_B);
+    System.out.println("Bus C (Shifter Out): " + shifter.getOuput());
+
+    System.out.println("\n--- ALU State ---");
+    System.out.println("ALU Out: " + alu.getOutput());
+
+    System.out.println("\n--- Main Registers ---");
+    for (int i = 0; i < registers.length; i++) {
+        System.out.printf("  %-5s: %-6d", registers[i].getName(), registers[i].get());
+        if (i % 2 != 0) {
+            System.out.println();
+        }
+    }
+
+    // Você pode decidir se quer os campos do MIR no arquivo de log também.
+    // printMIRFieldsToFile(System.out); 
+
+    System.out.println("---------------------------------\n");
+    }
+
+    // Funções de decode dos campos da microinstrução
+    public void printMIRFields() {
+        System.out.println("Current Microinstruction Fields:");
+        System.out.println("ADDR: " + get_ADDR_Field());
+        System.out.println("BUS_A: " + get_BUSA_Field());
+        System.out.println("BUS_B: " + get_BUSB_Field());
+        System.out.println("BUS_C: " + get_BUSC_Field());
+        System.out.println("EN_C: " + get_ENC_Field());
+        System.out.println("WR: " + get_WR_Field());
+        System.out.println("RD: " + get_RD_Field());
+        System.out.println("MAR: " + get_MAR_Field());
+        System.out.println("MBR: " + get_MBR_Field());
+        System.out.println("SHIFTER: " + get_SHIFTER_Field());
+        System.out.println("ALU: " + get_ALU_Field());
+        System.out.println("COND: " + get_COND_Field());
+        System.out.println("AMUX: " + get_AMUX_Field());
     }
 }
