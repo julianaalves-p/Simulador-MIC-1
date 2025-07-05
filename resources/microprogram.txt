@@ -1,79 +1,80 @@
-mar:=pc; rd;
-pc:=pc+1; rd;
-ir:=mbr; if n then goto 28;
-tir:=lshift(ir+ir); if n then goto 19;
-tir:= lshift(tir); if n then goto 11;
-alu:=tir; if n then goto 9;
-mar:=ir; rd;
-rd;
-ac:=mbr; goto 0;
-mar:=ir; mbr:=ac; wr;
-wr; goto 0;
-alu:=tir; if n then goto 15;
-mar:=ir; rd;
+<Microprograma>
+mar:=pc; rd;                                BUSCA
+pc:=pc+1; rd;                               BUSCA
+ir:=mbr; if n then goto 28;                 BUSCA/IDENTIFICA
+tir:=lshift(ir+ir); if n then goto 19;      IDENTIFICA
+tir:= lshift(tir); if n then goto 11;       IDENTIFICA
+alu:=tir; if n then goto 9;                 IDENTIFICA
+mar:=ir; rd;                                EXECUTA LODD
+rd;                                         
+ac:=mbr; goto 0;                            
+mar:=ir; mbr:=ac; wr;                       EXECUTA STOD
+wr; goto 0;                                 
+alu:=tir; if n then goto 15;                IDENTIFICA
+mar:=ir; rd;                                EXECUTA ADDD
 rd;
 ac:=mbr+ac; goto 0;
-mar:=ir; rd;
+mar:=ir; rd;                                EXECUTA SUBD
 ac:=ac+1; rd;
 a:=inv(mbr);
 ac:=ac+a; goto 0;
-tir:=lshift(tir); if n then goto 25;
+tir:=lshift(tir); if n then goto 25;        IDENTIFICA
 alu:=tir; if n then go to 23;
-alu:=ac; if n then goto 0;
+alu:=ac; if n then goto 0;                  EXECUTA JPOS
 pc:=band(ir,amask); goto 0;
-alu:=ac; if z then goto 22;
+alu:=ac; if z then goto 22;                 EXECUTA JZER
 goto 0;
 alu:=tir; if n then goto 27;
-pc:=band(ir,amask); goto 0;
-ac:=band(ir,amask); goto 0;
-tir:=lshift(ir+ir); if n then goto 40;
+pc:=band(ir,amask); goto 0;                 EXECUTA JUMP
+ac:=band(ir,amask); goto 0;                 EXECUTA LOCO
+tir:=lshift(ir+ir); if n then goto 40;      
 tir:=lshift(tir); if n then goto 35;
 alu:=tir; if n then goto 33;
-a:=ir+sp;
+a:=ir+sp;                                   EXECUTA LODL
 mar:=a; rd; goto 7;
-a:=ir+sp;
+a:=ir+sp;                                   EXECUTA STOL
 mar:=a; mbr:=ac; wr; goto 10;
 alu:=tir; if n then goto 38;
-a:=ir+sp;
+a:=ir+sp;                                   EXECUTA ADDL
 mar:=a; rd; goto 13;
-a:=ir+sp;
+a:=ir+sp;                                   EXECUTA SUBL
 mar:=a; rd; goto 16;
 tir:=lshift(tir); if n then goto 46;
 alu:=tir; if n then goto 44;
-alu:=ac; if n then goto 22;
+alu:=ac; if n then goto 22;                 EXECUTA JNEG
 goto 0;
-alu:=ac; if z then goto 0;
+alu:=ac; if z then goto 0;                  EXECUTA JNZE
 pc:=band(ir,amask); goto 0;
 tir:=lshift(tir); if n then goto 50;
-sp:=sp+(-1);
+sp:=sp+(-1);                                EXECUTA CALL
 mar:=sp; mbr:=pc; wr;
 pc:=band(ir,amask); wr; goto 0;
 tir:=lshift(tir); if n then goto 65;
 tir:=lshift(tir); if n then goto 59;
 alu:=tir; if n then goto 56;
-mar:=ac; rd;
+mar:=ac; rd;                                EXECUTA PSHI
 sp:=sp+(-1); rd;
 mar:=sp; wr; goto 10;
-mar:=sp; sp:=sp+(+1); rd;
+mar:=sp; sp:=sp+(+1); rd;                   EXECUTA POPI
 rd;
 mar:=ac; wr; goto 10;
-alu:=tir; if n then goto 62;
-sp:=sp+(-1);
+alu:=tir; if n then goto 62;                
+sp:=sp+(-1);                                EXECUTA PUSH
 mar:=sp; mbr:=ac; wr; goto 10;
-mar:=sp; sp:=sp+(+1); rd;
+mar:=sp; sp:=sp+(+1); rd;                   EXECUTA POP       
 rd;
 ac:=mbr; goto 0;
 tir:=lshift(tir); if n then goto 73;
 alu:=tir; if n then goto 70;
-mar:=sp; sp:=sp+(+1); rd;
+mar:=sp; sp:=sp+(+1); rd;                   EXECUTA RETN
 rd;
 pc:=mbr; goto 0;
-a:=ac;
+a:=ac;                                      EXECUTA SWAP
 ac:=sp;
 sp:=a; goto 0;
 alu:=tir; if n then goto 76;
-a:=band(ir,smask);
+a:=band(ir,smask);                          EXECUTA INSP
 sp:=sp+a; goto 0;
-a:=band(ir,smask);
+a:=band(ir,smask);                          EXECUTA DESP
 a:=inv(a);
-a:=a+(+1); goto 75;
+a:=a+(+1); goto 75;                         <FIM>
