@@ -47,9 +47,9 @@ public class CPU {
         MAR = new Register("MAR", (short)0);
         MBR = new Register("MBR", (short)0);
         MPC = new Register("MPC", (short)0);
-        MIR = new Register32bit("MIR", 0);
-        
+        MIR = new Register32bit("MIR", 0);  
         MP = new MainMemory();
+        FileParser.loadMP(MP);
         controlMemory = FileParser.getControlMemory();
         alu = new ALU();
         amux = new Amux();
