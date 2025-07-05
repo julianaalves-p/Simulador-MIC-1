@@ -62,7 +62,7 @@
                 
                 bf.close();
                 System.out.println("Carregamento do arquivo macroprogram.txt concluído.");
-                
+                System.out.println();
             } catch (IOException e) {
                 System.err.println("Erro ao ler o arquivo macroprogram.txt: " + e.getMessage());
                 System.err.println("Verifique se o arquivo existe no diretório do projeto ou em /dataFiles/");
@@ -74,7 +74,6 @@
             int index = 0;
             try {
                 BufferedReader bf = getBufferedReader("/dataFiles/controlMemory.txt");
-                line = bf.readLine(); // consome a primeira linha (estrutura do endereço)
                 while ((line = bf.readLine()) != null && index < 256) {
                     String binary = line.replaceAll("\\s+", "");
                     binary = binary.substring(0, 32);

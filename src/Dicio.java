@@ -33,7 +33,7 @@ public class Dicio {
         inst.put("PSHI", "1111000000000000");
         inst.put("POPI", "1111001000000000"); 
         inst.put("PUSH", "1111010000000000");
-        inst.put("POPP", "1111011000000000"); 
+        inst.put("POP", "1111011000000000"); 
         inst.put("RETN", "1111100000000000"); 
         inst.put("SWAP", "1111101000000000"); 
         inst.put("INSP", "1111110"); 

@@ -29,7 +29,7 @@ public class CPU {
 
         registers[0] = new Register("PC", (short) 0);
         registers[1] = new Register("AC", (short) 0);
-        registers[2] = new Register("SP", (short) 4095);
+        registers[2] = new Register("SP", (short) 4096);
         registers[3] = new Register("IR", (short) 0);
         registers[4] = new Register("TIR", (short) 0);
         registers[5] = new Register("0", (short) 0);
