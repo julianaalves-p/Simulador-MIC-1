@@ -61,4 +61,9 @@ public class MainMemory {
         memory[manualSetPointer] = (short)value;
         this.manualSetPointer++;
     }
+    public void printUsedMemorySpace() {
+        for (int i = 0; i <= this.manualSetPointer; i++) {
+            System.out.println(memory[i]);
+        }
+    }
 }

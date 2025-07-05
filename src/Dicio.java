@@ -15,7 +15,7 @@ public class Dicio {
 
     static {
         // 23 instruções da ISA
-        inst.put("LOAD", "0000");
+        inst.put("LODD", "0000");
         inst.put("STOD", "0001"); 
         inst.put("ADDD", "0010"); 
         inst.put("SUBD", "0011"); 
@@ -37,7 +37,8 @@ public class Dicio {
         inst.put("RETN", "1111100000000000"); 
         inst.put("SWAP", "1111101000000000"); 
         inst.put("INSP", "1111110"); 
-        inst.put("DESP", "1111111"); 
+        inst.put("DESP", "1111111");
+        inst.put("HALT", "1111111111111111");
 
         // inicialização das operações da ALU (conforme ALU.java)
         aluOperations.put("ADD", "00");

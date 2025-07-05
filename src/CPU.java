@@ -49,12 +49,17 @@ public class CPU {
         MPC = new Register("MPC", (short)0);
         MIR = new Register32bit("MIR", 0);  
         MP = new MainMemory();
-        FileParser.loadMP(MP);
+        // FileParser.loadMP(MP);
         controlMemory = FileParser.getControlMemory();
         alu = new ALU();
         amux = new Amux();
         shifter = new Shifter();
     }
+
+    public void loadProgram(String filepath) {
+        FileParser.loadMP(MP, filepath);
+    }
+    
     public void runFirstSubcycle() {
         MIR.set(controlMemory[MPC.get()]);
         if (MP.isReadEnabled()) {

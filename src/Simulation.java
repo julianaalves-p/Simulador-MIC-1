@@ -3,35 +3,29 @@ import java.io.File;
 public class Simulation {
     public static void main(String[] args) {
         CPU cpu = new CPU();
+        cpu.loadProgram("dataFiles/macroprogram.txt");
 
-        loadTest_02_v2(cpu);
-        short inst;
-        inst = Assembler.assembleAndLoad("LOCO 10");
-        System.out.println(inst);
-        inst = Assembler.assembleAndLoad("ADDD 20");
-        System.out.println(inst);
-        inst = Assembler.assembleAndLoad("STOD 30");
-        System.out.println(inst);
+        cpu.run();
 
-        // cpu.run();
-
-        // int value;
-        // for (int i = 0; i < 30; i++) {
-        //     value = cpu.MP.getManual(i);
-        //     System.out.printf("MP[%d]: %d\n", i, value);
-        // }
-        // for (int i = 999; i < 1009; i++) {
-        //     value = cpu.MP.getManual(i);
-        //     System.out.printf("MP[%d]: %d\n", i, value);
-        // }
-        // for (int i = 1999; i < 2009; i++) {
-        //     value = cpu.MP.getManual(i);
-        //     System.out.printf("MP[%d]: %d\n", i, value);
-        // }
-        // for (int i = 4085; i < 4096; i++) {
-        //     value = cpu.MP.getManual(i);
-        //     System.out.printf("MP[%d]: %d\n", i, value);
-        // }
+        // Implementar uma funcionalidade de guardar todos os endereços da MP
+        // num arquivo de saída, para análise
+        int value;
+        for (int i = 0; i < 30; i++) {
+            value = cpu.MP.getManual(i);
+            System.out.printf("MP[%d]: %d\n", i, value);
+        }
+        for (int i = 999; i < 1009; i++) {
+            value = cpu.MP.getManual(i);
+            System.out.printf("MP[%d]: %d\n", i, value);
+        }
+        for (int i = 1999; i < 2009; i++) {
+            value = cpu.MP.getManual(i);
+            System.out.printf("MP[%d]: %d\n", i, value);
+        }
+        for (int i = 4085; i < 4096; i++) {
+            value = cpu.MP.getManual(i);
+            System.out.printf("MP[%d]: %d\n", i, value);
+        }
     }
 
     public static void loadTest_01(CPU cpu) {

@@ -28,7 +28,7 @@ public class Assembler {
             StringBuilder fullBinaryInstructionBuilder = new StringBuilder(binaryPrefix);
 
             
-            if (mnemonic.equals("LOAD") || mnemonic.equals("STOD") || mnemonic.equals("ADDD") ||
+            if (mnemonic.equals("LODD") || mnemonic.equals("STOD") || mnemonic.equals("ADDD") ||
                 mnemonic.equals("SUBD") || mnemonic.equals("JPOS") || mnemonic.equals("JZER") ||
                 mnemonic.equals("JUMP") || mnemonic.equals("LOCO") || mnemonic.equals("LODL") ||
                 mnemonic.equals("STOL") || mnemonic.equals("ADDL") || mnemonic.equals("SUBL") ||

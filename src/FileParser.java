@@ -1,18 +1,16 @@
     import java.io.*;
 
     public class FileParser {
-        
-
-        
-        public static void loadMP(MainMemory MP) {
+    
+        public static void loadMP(MainMemory MP, String filepath) {
             try {
                 // Primeiro tenta ler do diretório de recursos
                 BufferedReader bf = null;
                 try {
-                    bf = getBufferedReader("/dataFiles/macroprogram.txt");
+                    bf = getBufferedReader(filepath);
                 } catch (IOException e) {
                     // Se não encontrar no recursos, tenta no diretório do projeto
-                    bf = new BufferedReader(new FileReader("macroprogram.txt"));
+                    bf = new BufferedReader(new FileReader(filepath));
                 }
                 
                 String line;
