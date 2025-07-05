@@ -34,4 +34,24 @@ public class FileParser {
         // Cria um leitor a partir do stream de dados do arquivo
         return new BufferedReader(new InputStreamReader(inputStream));
     }
+
+    public static int[] getMacroInstructions(String resourcePath) {
+
+        int[] output = new int[4096];
+        String line;
+        int index = 0;
+        try {
+            BufferedReader bf = getBufferedReader(resourcePath);
+            while ((line = bf.readLine()) != null && index < 4096) {
+                String instruction = line.replaceAll("\\s+", "");
+                if (instruction.length() > 0) {
+                    output[index] = Integer.parseInt(instruction, 2);
+                    index++;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return output;
+    }
 }
