@@ -4,14 +4,12 @@ import java.util.Map;
 public class Assembler {
 
     
-    public void assembleAndLoad(String assemblyCode, MainMemory memory, int startAddress) {
-
+    public static short assembleAndLoad(String assemblyCode) {
+        short instructionValue = -1;
         if (assemblyCode == null || assemblyCode.trim().isEmpty()) {
             System.out.println("Nenhum código assembly fornecido para montagem.");
-            return;
+            return instructionValue;
         }
-
-        int currentAddress = startAddress; // end da MP onde a instrução será armazenada
 
         for (String line : assemblyCode.trim().split("\n")) {
             line = line.trim();
@@ -48,7 +46,8 @@ public class Assembler {
                 } catch (NumberFormatException e) {
                     throw new IllegalArgumentException("Operando inválido para '" + mnemonic + "'. Esperado um número, encontrado: " + parts[1] + " na linha: " + line);
                 }
-            } else if (mnemonic.equals("INSP") || mnemonic.equals("DESP")) {
+            } 
+            else if (mnemonic.equals("INSP") || mnemonic.equals("DESP")) {
                 if (parts.length < 2) {
                     throw new IllegalArgumentException("Instrução '" + mnemonic + "' requer um operando de valor (y) na linha: " + line);
                 }
@@ -62,7 +61,8 @@ public class Assembler {
                 } catch (NumberFormatException e) {
                     throw new IllegalArgumentException("Operando inválido para '" + mnemonic + "'. Esperado um número, encontrado: " + parts[1] + " na linha: " + line);
                 }
-            } else {
+            } 
+            else {
                 if (parts.length > 1) {
                     throw new IllegalArgumentException("Instrução '" + mnemonic + "' não espera operandos, mas foi encontrado: " + parts[1] + " na linha: " + line);
                 }
@@ -80,12 +80,8 @@ public class Assembler {
                 binaryInstructionString = "0" + binaryInstructionString; // Garante 16 bits para INSP/DESP
             }
 
-            short instructionValue = (short) Integer.parseInt(binaryInstructionString, 2);
-
-            
-            memory.setManual(currentAddress, instructionValue);
-            System.out.println("Montada e carregada no endereço " + currentAddress + ": " + line + " -> " + binaryInstructionString + " (valor: " + instructionValue + ")");
-            currentAddress++; 
+            instructionValue = (short) Integer.parseInt(binaryInstructionString, 2);
         }
+        return instructionValue;
     }
 }

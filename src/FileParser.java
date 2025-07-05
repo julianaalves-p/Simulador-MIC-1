@@ -3,6 +3,11 @@
     public class FileParser {
         
 
+        public static void loadMP(MainMemory MP) {
+            //LER PROXIMA MACROINST. DO ARQUIVO MACROPROGRAM.TXT
+            //INTERPRETAR USANDO METODO assembleAndLoad DA CLASSE Assembler
+            //Guardar resultado na MP
+        }
         public static int[] getControlMemory() {
             int [] output = new int[256];
             String line;

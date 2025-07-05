@@ -57,7 +57,6 @@ public class CPU {
     }
     public void runFirstSubcycle() {
         MIR.set(controlMemory[MPC.get()]);
-        // System.out.println("MIR: " + MIR.get());
         if (MP.isReadEnabled()) {
             MP.readFromMemory(MBR);;
         }
