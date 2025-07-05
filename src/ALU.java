@@ -14,21 +14,21 @@ public class ALU
     public static byte PASS_A = 0b10;
     public static byte INV_A = 0b11;
 
-    public void execute(byte operation, short bus_A, short bus_B)
+    public void execute(byte operation, short input_A, short input_B)
     {
         this.result = 0;
         switch (operation) {
             case 0b00: // case ADD
-                this.result = (short) (bus_A + bus_B);
+                this.result = (short) (input_A + input_B);
                 break;
             case 0b01: // case AND
-                this.result = (short) (result & bus_B);
+                this.result = (short) (result & input_B);
                 break;
             case 0b10: // case PASS_A
-                this.result = bus_A;
+                this.result = input_A;
                 break;
             case 0b11: // case INV(A)
-                this.result = (short) (~bus_A);
+                this.result = (short) (~input_A);
                 break;
             default:
                 break;
