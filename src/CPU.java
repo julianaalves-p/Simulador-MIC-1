@@ -1,9 +1,6 @@
 // import java.util.List;
 // import java.util.ArrayList;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 public class CPU {
 
@@ -60,6 +57,7 @@ public class CPU {
     }
     public void runFirstSubcycle() {
         MIR.set(controlMemory[MPC.get()]);
+        // System.out.println("MIR: " + MIR.get());
         if (MP.isReadEnabled()) {
             MP.readFromMemory(MBR);;
         }
@@ -125,14 +123,12 @@ public class CPU {
     public void run() {
         boolean running = true;
         while (running) {
-            // printCPUState();
             runFirstSubcycle();
             runSecondSubcycle();
             runThirdSubcycle();
             runFourthSubcycle();
             clock.incrementCounter();
             if (registers[3].get() == -1) {
-                // printCPUState();
                 running = false;
             }
         }
@@ -265,4 +261,11 @@ public class CPU {
         System.out.println("COND: " + get_COND_Field());
         System.out.println("AMUX: " + get_AMUX_Field());
     }
+
+    public void printControlMemory() {
+        for (int i = 0; i < 256; i++) {
+            System.out.println(controlMemory[i]);
+        }
+    }
 }
+
