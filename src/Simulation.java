@@ -4,31 +4,26 @@ public class Simulation {
     public static void main(String[] args) {
         CPU cpu = new CPU();
 
-        cpu.MP.setManual(0, 20);
-        cpu.MP.setManual(1, 8222);
-        cpu.MP.setManual(2, 4136);
-        cpu.MP.setManual(3, 28679);
-        cpu.MP.setManual(4, 12313);
-        cpu.MP.setManual(5, 62976);
+        /*
+        Testando programa:
+        LOCO 10
+        ADDD 20 
+        STOD 30
+        HALT
+        */
+        cpu.MP.setManual(0, 28682);
+        cpu.MP.setManual(1, 8212);
+        cpu.MP.setManual(2, 4126);
+        cpu.MP.setManual(3, 0xFFFF);
+        cpu.MP.setManual(20, 5);
 
-        cpu.runFirstSubcycle();
-        cpu.runSecondSubcycle();
-        cpu.runThirdSubcycle();
-        cpu.printCPUState();
+        cpu.run((short)30);
 
-        cpu.runFirstSubcycle();
-        cpu.runSecondSubcycle();
-        cpu.runThirdSubcycle();
-        cpu.printCPUState();
-
-        cpu.runFirstSubcycle();
-        cpu.runSecondSubcycle();
-        cpu.runThirdSubcycle();
-        cpu.printCPUState();
-
-        cpu.runFirstSubcycle();
-        cpu.runSecondSubcycle();
-        cpu.runThirdSubcycle();
-        cpu.printCPUState();
+        System.out.println();
+        int value;
+        for (int i = 0; i < 31; i++) {
+            value = cpu.MP.getManual(i);
+            System.out.printf("MP[%d]: %d\n", i, value);
+        }
     }
 }

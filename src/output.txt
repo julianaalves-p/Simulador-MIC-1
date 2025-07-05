@@ -1,0 +1,350 @@
+---------- CPU STATE ----------
+--- Clock 0 ---
+Sub-cycle: 0
+
+--- Control Registers ---
+MPC: 0
+MIR: (0)
+MAR: 0
+MBR: 0
+
+--- Internal Latches & Buses ---
+Latch A: 0
+Latch B: 0
+Bus C (Shifter Out): 0
+
+--- ALU State ---
+ALU Out: 0
+
+--- Main Registers ---
+  PC   : 0       AC   : 0
+  SP   : 4095    IR   : 0
+  TIR  : 0       0    : 0
+  +1   : 1       -1   : -1
+  AMASK: 4095    SMASK: 255
+  A    : 0       B    : 0
+  C    : 0       D    : 0
+  E    : 0       F    : 0
+Current Microinstruction Fields:
+ADDR: 0
+BUS_A: 0
+BUS_B: 0
+BUS_C: 0
+EN_C: 0
+WR: 0
+RD: 0
+MAR: 0
+MBR: 0
+SHIFTER: 0
+ALU: 0
+COND: 0
+AMUX: 0
+---------------------------------
+
+
+---------- CPU STATE ----------
+--- Clock 1 ---
+Sub-cycle: 0
+
+--- Control Registers ---
+MPC: 1
+MIR: (12582912)
+MAR: 0
+MBR: 0
+
+--- Internal Latches & Buses ---
+Latch A: 0
+Latch B: 0
+Bus C (Shifter Out): 0
+
+--- ALU State ---
+ALU Out: 0
+
+--- Main Registers ---
+  PC   : 0       AC   : 0
+  SP   : 4095    IR   : 0
+  TIR  : 0       0    : 0
+  +1   : 1       -1   : -1
+  AMASK: 4095    SMASK: 255
+  A    : 0       B    : 0
+  C    : 0       D    : 0
+  E    : 0       F    : 0
+Current Microinstruction Fields:
+ADDR: 0
+BUS_A: 0
+BUS_B: 0
+BUS_C: 0
+EN_C: 0
+WR: 0
+RD: 1
+MAR: 1
+MBR: 0
+SHIFTER: 0
+ALU: 0
+COND: 0
+AMUX: 0
+---------------------------------
+
+
+---------- CPU STATE ----------
+--- Clock 2 ---
+Sub-cycle: 0
+
+--- Control Registers ---
+MPC: 2
+MIR: (5244416)
+MAR: 0
+MBR: 28682
+
+--- Internal Latches & Buses ---
+Latch A: 1
+Latch B: 0
+Bus C (Shifter Out): 1
+
+--- ALU State ---
+ALU Out: 1
+
+--- Main Registers ---
+  PC   : 1       AC   : 0
+  SP   : 4095    IR   : 0
+  TIR  : 0       0    : 0
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255
+  A    : 0       B    : 0
+  C    : 0       D    : 0
+  E    : 0       F    : 0
+Current Microinstruction Fields:
+ADDR: 0
+BUS_A: 6
+BUS_B: 0
+BUS_C: 0
+EN_C: 1
+WR: 0
+RD: 1
+MAR: 0
+MBR: 0
+SHIFTER: 0
+ALU: 0
+COND: 0
+AMUX: 0
+---------------------------------
+
+
+---------- CPU STATE ----------
+--- Clock 3 ---
+Sub-cycle: 0
+
+--- Control Registers ---
+MPC: 3
+MIR: (-1340932068)
+MAR: 0
+MBR: 28682
+
+--- Internal Latches & Buses ---
+Latch A: 1
+Latch B: 1
+Bus C (Shifter Out): 28682
+
+--- ALU State ---
+ALU Out: 28682
+
+--- Main Registers ---
+  PC   : 1       AC   : 0
+  SP   : 4095    IR   : 28682
+  TIR  : 0       0    : 0
+  +1   : 1       -1   : -1
+  AMASK: 4095    SMASK: 255
+  A    : 0       B    : 0
+  C    : 0       D    : 0
+  E    : 0       F    : 0
+Current Microinstruction Fields:
+ADDR: 28
+BUS_A: 0
+BUS_B: 0
+BUS_C: 3
+EN_C: 1
+WR: 0
+RD: 0
+MAR: 0
+MBR: 0
+SHIFTER: 0
+ALU: 2
+COND: 1
+AMUX: 1
+---------------------------------
+
+
+---------- CPU STATE ----------
+--- Clock 4 ---
+Sub-cycle: 0
+
+--- Control Registers ---
+MPC: 19
+MIR: (605303571)
+MAR: 0
+MBR: 28682
+
+--- Internal Latches & Buses ---
+Latch A: 28682
+Latch B: 28682
+Bus C (Shifter Out): -16344
+
+--- ALU State ---
+ALU Out: -8172
+
+--- Main Registers ---
+  PC   : 1       AC   : 0
+  SP   : 4095    IR   : 28682
+  TIR  : -16344  0    : 0
+  +1   : 1       -1   : -1
+  AMASK: 4095    SMASK: 255
+  A    : 0       B    : 0
+  C    : 0       D    : 0     
+  E    : 0       F    : 0
+Current Microinstruction Fields:
+ADDR: 19
+BUS_A: 3
+BUS_B: 3
+BUS_C: 4
+EN_C: 1
+WR: 0
+RD: 0
+MAR: 0
+MBR: 0
+SHIFTER: 2
+ALU: 0
+COND: 1
+AMUX: 0
+---------------------------------
+
+
+---------- CPU STATE ----------
+--- Clock 5 ---
+Sub-cycle: 0
+
+--- Control Registers ---
+MPC: 25
+MIR: (873727001)
+MAR: 0
+MBR: 28682
+
+--- Internal Latches & Buses ---
+Latch A: -16344
+Latch B: 1
+Bus C (Shifter Out): -32688
+
+--- ALU State ---
+ALU Out: -16344
+
+--- Main Registers ---
+  PC   : 1       AC   : 0
+  SP   : 4095    IR   : 28682
+  TIR  : -32688  0    : 0
+  +1   : 1       -1   : -1
+  AMASK: 4095    SMASK: 255
+  A    : 0       B    : 0
+  C    : 0       D    : 0
+  E    : 0       F    : 0
+Current Microinstruction Fields:
+ADDR: 25
+BUS_A: 4
+BUS_B: 0
+BUS_C: 4
+EN_C: 1
+WR: 0
+RD: 0
+MAR: 0
+MBR: 0
+SHIFTER: 2
+ALU: 2
+COND: 1
+AMUX: 0
+---------------------------------
+
+
+---------- CPU STATE ----------
+--- Clock 6 ---
+Sub-cycle: 0
+
+--- Control Registers ---
+MPC: 27
+MIR: (805307419)
+MAR: 0
+MBR: 28682
+
+--- Internal Latches & Buses ---
+Latch A: -32688
+Latch B: 1
+Bus C (Shifter Out): -32688
+
+--- ALU State ---
+ALU Out: -32688
+
+--- Main Registers ---
+  PC   : 1       AC   : 0
+  SP   : 4095    IR   : 28682
+  TIR  : -32688  0    : 0
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255
+  A    : 0       B    : 0
+  C    : 0       D    : 0
+  E    : 0       F    : 0
+Current Microinstruction Fields:
+ADDR: 27
+BUS_A: 4
+BUS_B: 0
+BUS_C: 0
+EN_C: 0
+WR: 0
+RD: 0
+MAR: 0
+MBR: 0
+SHIFTER: 0
+ALU: 2
+COND: 1
+AMUX: 0
+---------------------------------
+
+
+---------- CPU STATE ----------
+--- Clock 7 ---
+Sub-cycle: 0
+
+--- Control Registers ---
+MPC: 0
+MIR: (1745958912)
+MAR: 0
+MBR: 28682
+
+--- Internal Latches & Buses ---
+Latch A:  z
+Latch B: 28682
+Bus C (Shifter Out): 0
+
+--- ALU State ---
+ALU Out: 0
+
+--- Main Registers ---
+  PC   : 1       AC   : 0
+  SP   : 4095    IR   : 28682
+  TIR  : -32688  0    : 0
+  +1   : 1       -1   : -1
+  AMASK: 4095    SMASK: 255
+  A    : 0       B    : 0
+  C    : 0       D    : 0
+  E    : 0       F    : 0
+Current Microinstruction Fields:
+ADDR: 0
+BUS_A: 8
+BUS_B: 3
+BUS_C: 1
+EN_C: 1
+WR: 0
+RD: 0
+MAR: 0
+MBR: 0
+SHIFTER: 0
+ALU: 1
+COND: 3
+AMUX: 0
+---------------------------------

@@ -56,21 +56,14 @@ public class CPU {
     }
     public void runFirstSubcycle() {
         MIR.set(controlMemory[MPC.get()]);
-        busLine_B = registers[0].get();
-        MAR.set(busLine_B);
-        MP.readFromMemory(MAR, MBR);
-        busLine_C = MBR.get();
-        registers[3].set(busLine_C); // IR := mbr
-        busLine_A = registers[0].get();
-        busLine_B = registers[6].get();
-        alu.execute(ALU.ADD, busLine_B, busLine_A);
-        busLine_C = alu.get();
-        registers[0].set(busLine_C);
+        if (MP.isReadEnabled()) {
+            MP.readFromMemory(MBR);;
+        }
+        else if (MP.isWriteEnabled()) {
+            MP.writeToMemory(MBR);
+        }
 
-        System.out.println("Current subcycle: " + clock.get());
-        System.out.println("Current MPC: " + MPC.get());
         clock.increment();
-        MPC.set((short)(MPC.get() + 1));
     }
     public void runSecondSubcycle() {
         decodedA = get_BUSA_Field();
@@ -96,38 +89,82 @@ public class CPU {
             MAR.set(latch_B);
         }
         alu.execute(controlSignal_ALU, amux.getOutput(), latch_B);
-        shifter.execute(controlSignal_SHIFTER, alu.get());
+        shifter.execute(controlSignal_SHIFTER, alu.getOutput());
+        clock.increment();
+    }
+    public void runFourthSubcycle() {
+        byte controlSignal_RD, controlSignal_WR, controlSignal_ENC, controlSignal_MBR;
+        byte decodedC = get_BUSC_Field();
+        controlSignal_ENC = get_ENC_Field();
+        controlSignal_RD = get_RD_Field();
+        controlSignal_WR = get_WR_Field();
+        controlSignal_MBR = get_MBR_Field();
+
+        busLine_C = shifter.getOuput();
+        if (controlSignal_MBR == 1) {
+            MBR.set(busLine_C);
+        }
+        if (controlSignal_ENC == 1) {
+            registers[decodedC].set(busLine_C);
+        }
+        if (controlSignal_RD == 1) {
+            MP.enableRead(MAR);
+        }
+        if (controlSignal_WR == 1) {
+            MP.enableWrite(MAR);
+        }
+
+        calculateNextMPC();
+        clock.increment();
     }
 
-public void printCPUState() {
-    System.out.println("\n---------- CPU STATE ----------");
-    System.out.println("--- Clock ---");
-    System.out.println("Sub-cycle: " + clock.get());
-
-    System.out.println("\n--- Control Registers ---");
-    System.out.println("MPC: " + MPC.get());
-    System.out.printf("MIR: (%d)\n", MIR.get()); // Imprime em Hex e Decimal
-    System.out.println("MAR: " + MAR.get());
-    System.out.println("MBR: " + MBR.get());
-
-    System.out.println("\n--- Internal Latches & Buses ---");
-    System.out.println("Latch A: " + latch_A);
-    System.out.println("Latch B: " + latch_B);
-    System.out.println("Bus C (Shifter Out): " + shifter.getOuput()); // Supondo que Shifter tenha um método get()
-
-    System.out.println("\n--- ALU State ---");
-    System.out.println("ALU Out: " + alu.get());
-
-    System.out.println("\n--- Main Registers ---");
-    for (int i = 0; i < registers.length; i++) {
-        // Imprime em duas colunas para melhor visualização
-        System.out.printf("  %-5s: %-6d", registers[i].getName(), registers[i].get());
-        if (i % 2 != 0) {
-            System.out.println();
+    public void run(short numOfcycles) {
+        boolean running = true;
+        int i = 0;
+        while (running) {
+            printCPUState();
+            runFirstSubcycle();
+            runSecondSubcycle();
+            runThirdSubcycle();
+            runFourthSubcycle();
+            clock.incrementCounter();
+            i++;
+            if (registers[3].get() == 0xFFFF || i > numOfcycles) {
+                running = false;
+            }
         }
     }
-    System.out.println("---------------------------------\n");
-}
+
+    public void printCPUState() {
+        System.out.println("\n---------- CPU STATE ----------");
+        System.out.printf("--- Clock %d ---\n", clock.getClockCounter());
+        System.out.println("Sub-cycle: " + clock.get());
+
+        System.out.println("\n--- Control Registers ---");
+        System.out.println("MPC: " + MPC.get());
+        System.out.printf("MIR: (%d)\n", MIR.get()); // Imprime em Hex e Decimal
+        System.out.println("MAR: " + MAR.get());
+        System.out.println("MBR: " + MBR.get());
+
+        System.out.println("\n--- Internal Latches & Buses ---");
+        System.out.println("Latch A: " + latch_A);
+        System.out.println("Latch B: " + latch_B);
+        System.out.println("Bus C (Shifter Out): " + shifter.getOuput()); // Supondo que Shifter tenha um método get()
+
+        System.out.println("\n--- ALU State ---");
+        System.out.println("ALU Out: " + alu.getOutput());
+
+        System.out.println("\n--- Main Registers ---");
+        for (int i = 0; i < registers.length; i++) {
+            // Imprime em duas colunas para melhor visualização
+            System.out.printf("  %-5s: %-6d", registers[i].getName(), registers[i].get());
+            if (i % 2 != 0) {
+                System.out.println();
+            }
+        }
+        printMIRFields();
+        System.out.println("---------------------------------\n");
+    }
 
     // Funções de decode dos campos da microinstrução
     public void printMIRFields() {
@@ -146,6 +183,38 @@ public void printCPUState() {
         System.out.println("COND: " + get_COND_Field());
         System.out.println("AMUX: " + get_AMUX_Field());
     }
+
+    public void calculateNextMPC() {
+        byte controlSignal_COND = get_COND_Field();
+        byte addr = get_ADDR_Field();
+        boolean bitZ = alu.getZbit();
+        boolean bitN = alu.getNbit();
+        short nextMPC = (short) (MPC.get() + 1);
+
+        switch (controlSignal_COND) {
+            case 0b01:
+                if(bitN) {
+                    nextMPC = addr;
+                }
+                break;
+                
+            case 0b10:
+                if(bitZ) {
+                    nextMPC = addr;
+                }
+                break;
+
+            case 0b11:
+                nextMPC = addr;
+                break;
+
+            default:
+                MPC.set((short)(MPC.get() + 1));
+                break;
+        }
+        MPC.set(nextMPC);
+    }
+
     private int getMicroInstructionField(int shift, int mask) {
         int bitField = (MIR.get() >> shift) & mask;
         return bitField;

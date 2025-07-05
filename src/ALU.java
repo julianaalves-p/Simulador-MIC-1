@@ -1,6 +1,7 @@
 public class ALU 
 {   
-    private short result;
+    private short output;
+    private boolean NBit, ZBit;
 
     /*
     Flags da ALU:
@@ -16,26 +17,44 @@ public class ALU
 
     public void execute(byte operation, short input_A, short input_B)
     {
-        this.result = 0;
+        this.output = 0;
         switch (operation) {
             case 0b00: // case ADD
-                this.result = (short) (input_A + input_B);
+                this.output = (short) (input_A + input_B);
                 break;
             case 0b01: // case AND
-                this.result = (short) (result & input_B);
+                this.output = (short) (input_A & input_B);
                 break;
             case 0b10: // case PASS_A
-                this.result = input_A;
+                this.output = input_A;
                 break;
             case 0b11: // case INV(A)
-                this.result = (short) (~input_A);
+                this.output = (short) (~input_A);
                 break;
             default:
                 break;
         }
+        if (this.output == 0) {
+            this.ZBit = true;
+            this.NBit = false;
+        }
+        else if (this.output < 0) {
+            this.NBit = true;
+            this.ZBit = false;
+        }
+        else {
+            this.NBit = false;
+            this.ZBit = false;
+        }
     }
 
-    public short get() {
-        return this.result;
+    public short getOutput() {
+        return this.output;
+    }
+    public boolean getNbit() {
+        return this.NBit;
+    }
+    public boolean getZbit() {
+        return this.ZBit;
     }
 }
