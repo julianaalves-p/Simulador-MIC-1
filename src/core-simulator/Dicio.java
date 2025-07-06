@@ -39,13 +39,13 @@ public class Dicio {
         inst.put("DESP", "1111111");
         inst.put("HALT", "1111111111111111");
 
-        // inicialização das operações da ALU (conforme ALU.java)
+        // inicialização das operações da ALU (ALU.java)
         aluOperations.put("ADD", "00");
         aluOperations.put("AND", "01");
         aluOperations.put("PASS_A", "10");
         aluOperations.put("INV_A", "11");
 
-        // inicialização dos códigos de registradores (conforme CPU.java)
+        // inicialização dos códigos de registradores (CPU.java)
         registerCodes.put("PC", "0000"); // 0
         registerCodes.put("AC", "0001"); // 1
         registerCodes.put("SP", "0010"); // 2
