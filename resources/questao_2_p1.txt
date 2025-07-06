@@ -1,0 +1,97 @@
+Código alto nível:
+i, n, x e y são as únicas variáveis globais que pode usar
+
+if (i <= n) then x[i] = x[i] - y*8
+
+Código Macroinstruções:
+
+Formato 2:
+i, n, x e y são as únicas variáveis globais que pode usar
+
+if (i <= n) then x[i] = x[i] - y*8
+
+LODD &n
+SUBD &i
+JNEG saída
+
+LODD &y
+PUSH
+ADDL 0 // ac := 2y
+STOL 0 //m[4095] := 2y
+ADDL 0 // ac := 4y
+STOL 0 //m[4095] := 4y
+ADDL 0 // ac := 8y
+STOL 0 //m[4095] := 8y
+
+LOCO &x
+ADDD &i
+PUSH
+
+PSHI
+
+POP
+SUBL 1
+PUSH
+
+LODL 1
+POPI
+
+INSP 2
+
+Código Microinstruções:
+
+mar := &n; rd
+rd;
+ac := mbr;
+mar := &i;
+rd; 
+ac := ac + 1;
+a := inv(mbr)
+alu := ac + a; if n goto saída;
+mar := &y;
+
+rd;
+ac := mbr;
+ac := lshift(ac + ac);
+ac := lshift(ac);
+wr;
+
+ac := &x
+mar := &i;
+rd;
+a := mbr;
+alu := ac + a;
+mar := temp;
+mbr := ac;
+wr;
+
+mar := ac;
+rd;
+ac := mbr;
+mar := &y;
+rd;
+ac := ac + 1;
+a := inv(mbr);
+alu := ac + a;
+mar := temp;
+rd;
+a := mbr;
+mar := a;
+wr;
+
+//
+STOD temp //guarda ac no endereço temp --> m[temp] = ac
+          // ou seja, temp: &x + i 
+
+LODD temp // ac := &x + i
+PSHI // sp := 4094 , m[4094] := m[&x + i]
+POP // ac := m[4094] , sp := 4095
+SUBD &y // ac := x[i] - y*8
+
+PUSH // sp = 4094 , m[4094] := ac (x[i] - y*8)
+LODD temp // ac := &x + i
+POPI // m[ac] := m[sp] --> m[&x + i] = m[4094]
+
+
+<Stack>
+temp: &x + i

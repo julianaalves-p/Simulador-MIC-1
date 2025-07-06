@@ -1,3 +1,8 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class MainMemory {
     private final static short MAIN_MEMORY_SIZE = 4096;
     private short[] memory = new short[MAIN_MEMORY_SIZE];
@@ -64,6 +69,32 @@ public class MainMemory {
     public void printUsedMemorySpace() {
         for (int i = 0; i <= this.manualSetPointer; i++) {
             System.out.println(memory[i]);
+        }
+    }
+    public void createMemoryLog(String filename) {
+        PrintWriter memoryWriter;
+        try {
+            BufferedWriter bfw = new BufferedWriter(new FileWriter(filename));
+            memoryWriter = new PrintWriter(bfw);
+            System.out.println("Log da MP iniciado.");
+            memoryWriter.println("#----- MAIN MEMORY DUMP -----#");
+            memoryWriter.println();
+
+            // Itera por todos os 4096 endereços da memória.
+            for (int i = 0; i < MainMemory.MAIN_MEMORY_SIZE; i++) {
+                // Pega o valor de cada endereço de memória.
+                // (Supondo que você tenha o método getManual() na sua MainMemory)
+                
+                // Escreve a linha formatada no arquivo.
+                memoryWriter.printf("MP[%d]: %d\n", i, memory[(short)i]);
+            }
+            memoryWriter.close();
+            bfw.close();
+            System.out.println("Log da memória criado com sucesso.");
+
+        } catch (IOException e) {
+            System.err.println("### ERRO GRAVE: Falha ao criar o arquivo de log da memória! ###");
+            e.printStackTrace();
         }
     }
 }

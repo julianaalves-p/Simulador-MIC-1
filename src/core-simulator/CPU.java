@@ -1,27 +1,40 @@
-// import java.util.List;
-// import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class CPU {
 
+    public MainMemory MP;
     /* Barramentos A , B e C 
      * Latches A e B
      * Valores do decoder A, B e C
     */
-    short busLine_A, busLine_B, busLine_C;
-    short latch_A, latch_B;
-    byte decodedA, decodedB, decodedC;
+    private short busLine_A, busLine_B, busLine_C;
+    private short latch_A, latch_B;
+    private byte decodedA, decodedB, decodedC;
 
     // Registradores, Memória principal, ALU , AMUX e Shifter
-    Clock clock;
-    Register [] registers;
-    Register MAR, MBR, MPC;
-    Register32bit MIR;
-    MainMemory MP;
-    int [] controlMemory;
-    ALU alu;
-    Amux amux;
-    Shifter shifter;
+    private Clock clock;
+    private Register [] registers;
+    private Register MAR, MBR, MPC;
+    private Register32bit MIR;
+    private int [] controlMemory;
+    private ALU alu;
+    private Amux amux;
+    private Shifter shifter;
+
+    private String currentMacroInst;
+    private String currentMicroInst;
+    public String [] microprogramCode = FileParser.getMicroProgramCode("dataFiles/microprogram.txt");
+    public Map<Short, String> macroInstructionTable;
+    private PrintWriter logWriter;
 
     public CPU() {
         clock = new Clock();
@@ -49,7 +62,6 @@ public class CPU {
         MPC = new Register("MPC", (short)0);
         MIR = new Register32bit("MIR", 0);  
         MP = new MainMemory();
-        // FileParser.loadMP(MP);
         controlMemory = FileParser.getControlMemory();
         alu = new ALU();
         amux = new Amux();
@@ -57,7 +69,7 @@ public class CPU {
     }
 
     public void loadProgram(String filepath) {
-        FileParser.loadMP(MP, filepath);
+        macroInstructionTable = FileParser.loadMP(MP, filepath);
     }
     
     public void runFirstSubcycle() {
@@ -126,16 +138,21 @@ public class CPU {
 
     public void run() {
         boolean running = true;
+        startLog("C:\\Users\\caiop\\Desktop\\Caio\\Faculdade\\projetos\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\EXECUTION_LOG.txt");
+        saveCPUState();
         while (running) {
             runFirstSubcycle();
             runSecondSubcycle();
             runThirdSubcycle();
             runFourthSubcycle();
             clock.incrementCounter();
+            saveCPUState();
             if (registers[3].get() == -1) {
                 running = false;
             }
         }
+        endLog();
+        MP.createMemoryLog("C:\\Users\\caiop\\Desktop\\Caio\\Faculdade\\projetos\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\MEMORY_LOG.txt");
     }
 
     public void calculateNextMPC() {
@@ -167,6 +184,7 @@ public class CPU {
         }
         MPC.set(nextMPC);
     }
+
 
     private int getMicroInstructionField(int shift, int mask) {
         int bitField = (MIR.get() >> shift) & mask;
@@ -212,8 +230,63 @@ public class CPU {
         return (byte)getMicroInstructionField(31, 0x000001);
     }
 
-    // print functions
+    // LOG FUNCTIONS
+  
+    private void startLog(String filename) {
+        try {
+            BufferedWriter bfw = new BufferedWriter(new FileWriter(filename));
+            this.logWriter = new PrintWriter(bfw);
+            System.out.println("Log iniciado.");
+            this.logWriter.println("#----- CPU Execution Log -----#");
+            this.logWriter.println();
+        } catch (IOException e) {
+            System.out.println("Falha ao criar log.");
+            this.logWriter = null;
+        }
+    }
+    
+    private void endLog() {
+        if (this.logWriter != null) {
+            this.logWriter.close();
+            System.out.println("Log finalizado.");
+        }
+    }
 
+    private void saveCPUState() {
+        currentMacroInst = getMacroinstCode();
+        currentMicroInst = getMicroisntCode();
+        if (this.logWriter == null) {
+            return;
+        }
+        this.logWriter.printf("< --- CLOCK CYCLE %d --- >\n", clock.getClockCounter());
+        this.logWriter.println("CURRENT MICROINST.: " + currentMicroInst);
+        this.logWriter.println("CURRENT MACROINST.: " + currentMacroInst);
+        this.logWriter.println();
+        this.logWriter.println("< Control Registers >");
+        this.logWriter.println("MIR: " + MIR.get());
+        this.logWriter.println("MPC: " + MPC.get());
+        this.logWriter.println("MAR: " + MAR.get());
+        this.logWriter.println("MBR: " + MBR.get());
+        this.logWriter.println();
+        this.logWriter.println("< Main Registers >");
+        for (int i = 0; i < registers.length; i++) {
+            logWriter.printf("  %-5s: %-6d", registers[i].getName(), registers[i].get());
+            if (i % 2 != 0) {
+                logWriter.println();
+            }
+        }
+        this.logWriter.println("#-----------------------------------------#");
+        this.logWriter.println();
+    }
+
+    private String getMicroisntCode() {
+        return this.microprogramCode[MPC.get()];
+    }
+
+    private String getMacroinstCode() {
+        return macroInstructionTable.getOrDefault(registers[3].get(), "UNKNOWN");    
+    }
+        
     public void printCPUState() {
 
     System.out.println("\n---------- CPU STATE ----------");
