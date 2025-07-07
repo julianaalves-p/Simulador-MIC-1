@@ -37,13 +37,13 @@ public class Dicio {
         inst.put("SWAP", "1111101000000000"); 
         inst.put("INSP", "1111110"); 
         inst.put("DESP", "1111111");
-        inst.put("HALT", "1111111111111111");
+        inst.put("HALT", "1111111111111111"); // instrucao pra parar execucao do programa
 
         // inicialização das operações da ALU (ALU.java)
         aluOperations.put("ADD", "00");
         aluOperations.put("AND", "01");
         aluOperations.put("PASS_A", "10");
-        aluOperations.put("INV_A", "11");
+        aluOperations.put("INV_A", "11"); // inverte todos os bits de A
 
         // inicialização dos códigos de registradores (CPU.java)
         registerCodes.put("PC", "0000"); // 0
