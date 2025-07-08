@@ -157,7 +157,7 @@ public class CPU {
 
     public void run() {
         boolean running = true;
-        startLog("C:\\Users\\caiop\\Desktop\\Caio\\Faculdade\\projetos\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\EXECUTION_LOG.txt");
+        startLog("C:\\Users\\Guilherme\\IdeaProjects\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\MEMORY_LOG.txt");
         saveCPUState();
         while (running) {
             runFirstSubcycle();
@@ -171,7 +171,7 @@ public class CPU {
             }
         }
         endLog();
-        MP.createMemoryLog("C:\\Users\\alefe\\IdeaProjects\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\MEMORY_LOG.txt");
+        MP.createMemoryLog("C:\\Users\\Guilherme\\IdeaProjects\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\MEMORY_LOG.txt");
     }
 
     public void calculateNextMPC() {
@@ -390,5 +390,9 @@ public class CPU {
 
     public Register32bit getMIR(){
         return this.MIR;
+    }
+
+    public ALU getAlu() {
+        return this.alu;
     }
 }

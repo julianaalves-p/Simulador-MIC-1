@@ -22,9 +22,6 @@ public class Screen {
     private JLabel mbrLabel = new JLabel("MBR: 0");
     private JLabel mirLabel = new JLabel("MIR: 0");
 
-    //Main Label
-    private JLabel mainLabel = new JLabel();
-
     public Screen(){
 
         Cores paleta = new Cores();
@@ -99,10 +96,6 @@ public class Screen {
         this.modifyLabel(mirLabel, constantes.mirLabelPosX, constantes.mirLabelPosY, constantes.labelsSizeX,
                 constantes.labelsSizeY, textLabelFont, paleta.azul);
 
-        //Center Label
-        this.modifyLabel(mainLabel, constantes.mainLabelPosx, constantes.mainLabelPosY, constantes.mainLabelSizeX,
-                constantes.mainLabelSizeY, textLabelFont, paleta.vermelho);
-
         //Adding to the screen
         this.screen.add(nextMacroButton); this.screen.add(nextMicroButton);
         this.screen.add(clearProgramButton); this.screen.add(loadProgramButton);
@@ -116,8 +109,6 @@ public class Screen {
         this.screen.add(mpcLabel); this.screen.add(marLabel);
         this.screen.add(mbrLabel); this.screen.add(mirLabel);
 
-        this.screen.add(mainLabel);
-
         //Button actions
         nextMacroButton.addActionListener(action -> macroInstruction(action));
         nextMicroButton.addActionListener(action -> nextMicroInstruction(action));
@@ -130,12 +121,6 @@ public class Screen {
                              int sizeY, Font font, Color collorForeground){
         label.setBounds(positionX, positionY, sizeX, sizeY);
         label.setFont(font); label.setForeground(collorForeground);
-    }
-
-    private void modifyMainLabel(){
-        if(this.cpu.getCurrentMicroInst() != null) {
-            this.mainLabel.setText(this.cpu.getCurrentMicroInst());
-        }
     }
 
     private void modifyButton(JButton button, int positionX, int positionY, int sizeX,
@@ -157,9 +142,10 @@ public class Screen {
     }
 
     private void runProgram(ActionEvent actionEvent){
-        atualizarContadores();
-        modifyMainLabel();
-        cpu.run();
+        if (this.loaded) {
+            cpu.run();
+            atualizarContadores();
+        }
     }
 
     private void closeProgram(ActionEvent actionEvent){
@@ -170,6 +156,8 @@ public class Screen {
         if(this.loaded) {
             this.cpu.nextMacro();
             this.currentMacroLabel.setText("" + this.cpu.getCurrentMacroInst());
+            this.currentMicroLabel.setText("" + this.cpu.getCurrentMicroInst());
+            atualizarContadores();
         }
         else{
             this.currentMacroLabel.setText("Carregue o programa antes");
@@ -177,12 +165,20 @@ public class Screen {
     }
 
     private void nextMicroInstruction(ActionEvent actionEvent){
-        this.cpu.nextMicro();
-        this.currentMicroLabel.setText("" + this.cpu.getCurrentMicroInst());
+        if(this.loaded) {
+            this.cpu.nextMicro();
+            this.currentMicroLabel.setText("" + this.cpu.getCurrentMicroInst());
+            this.currentMacroLabel.setText("" + this.cpu.getCurrentMacroInst());
+            atualizarContadores();
+        } else {
+            this.currentMicroLabel.setText("Carregue o programa antes");
+        }
     }
 
     private void loadingProgram(ActionEvent actionEvent){
         this.cpu.loadProgram("dataFiles/macroprogram.txt");
         this.loaded = true;
+        this.currentMacroLabel.setText("Programa carregado!");
+        this.currentMicroLabel.setText("Pronto para iniciar.");
     }
 }
