@@ -10,7 +10,10 @@ import java.util.Map;
 
 
 public class CPU {
-
+    private Register MAR = new Register("MAR", (short)0);
+    private Register MBR = new Register("MBR", (short)0);
+    private Register MPC = new Register("MPC", (short)0);
+    private Register32bit MIR = new Register32bit("MIR", 0);
     public MainMemory MP;
     /* Barramentos A , B e C 
      * Latches A e B
@@ -23,8 +26,6 @@ public class CPU {
     // Registradores, Memória principal, ALU , AMUX e Shifter
     private Clock clock;
     private Register [] registers;
-    private Register MAR, MBR, MPC;
-    private Register32bit MIR;
     private int [] controlMemory;
     private ALU alu;
     private Amux amux;
@@ -56,11 +57,7 @@ public class CPU {
         registers[13] = new Register("D", (short) 0);
         registers[14] = new Register("E", (short) 0);
         registers[15] = new Register("F", (short) 0);
-        
-        MAR = new Register("MAR", (short)0);
-        MBR = new Register("MBR", (short)0);
-        MPC = new Register("MPC", (short)0);
-        MIR = new Register32bit("MIR", 0);  
+
         MP = new MainMemory();
         controlMemory = FileParser.getControlMemory();
         alu = new ALU();
@@ -136,6 +133,25 @@ public class CPU {
         clock.increment();
     }
 
+    public void nextMicro(){
+        runFirstSubcycle();
+        runSecondSubcycle();
+        runThirdSubcycle();
+        runFourthSubcycle();
+    }
+
+    public void nextMacro(){
+        boolean sameInstruction = true;
+        short startCurrentMacroCode = registers[3].get();
+
+        while(sameInstruction){
+            nextMicro();
+            if(this.registers[3].get() != startCurrentMacroCode){
+                sameInstruction = false;
+            }
+        }
+    }
+
     public void run() {
         boolean running = true;
         startLog("C:\\Users\\caiop\\Desktop\\Caio\\Faculdade\\projetos\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\EXECUTION_LOG.txt");
@@ -152,7 +168,7 @@ public class CPU {
             }
         }
         endLog();
-        MP.createMemoryLog("C:\\Users\\caiop\\Desktop\\Caio\\Faculdade\\projetos\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\MEMORY_LOG.txt");
+        MP.createMemoryLog("C:\\Users\\alefe\\IdeaProjects\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\MEMORY_LOG.txt");
     }
 
     public void calculateNextMPC() {
@@ -344,5 +360,32 @@ public class CPU {
             System.out.println(controlMemory[i]);
         }
     }
-}
 
+    public String getCurrentMacroInst(){
+        return this.currentMacroInst;
+    }
+
+    public String getCurrentMicroInst(){
+        return this.currentMicroInst;
+    }
+
+    public Register[] getRegister(){
+        return this.registers;
+    }
+
+    public Register getMAR(){
+        return this.MAR;
+    }
+
+    public Register getMBR(){
+        return this.MBR;
+    }
+
+    public Register getMPC(){
+        return this.MPC;
+    }
+
+    public Register32bit getMIR(){
+        return this.MIR;
+    }
+}
