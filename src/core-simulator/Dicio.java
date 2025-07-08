@@ -15,7 +15,7 @@ public class Dicio {
     public static final Map<String, String> registerCodes = new HashMap<>();
 
     static {
-        // 23 instruções da ISA
+        // 23 instruções da ISA (+1)
         inst.put("LODD", "0000");
         inst.put("STOD", "0001"); 
         inst.put("ADDD", "0010"); 
