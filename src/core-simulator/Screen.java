@@ -3,32 +3,45 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class Screen {
-    CPU cpu = new CPU();
-    private JFrame screen = new JFrame("Simulation");
-    private boolean loaded = false;
-    // Micro/Macro innstructions label
-    private JLabel macroExibition = new JLabel("Current Macro");
-    private JLabel microExibition = new JLabel("Current Micro");
-    private JLabel currentMicroLabel = new JLabel();
-    private JLabel currentMacroLabel = new JLabel();
+        CPU cpu = new CPU();
+        private JFrame screen = new JFrame("Simulation");
+        private boolean loaded = false;
+        // Micro/Macro innstructions label
+        private JLabel macroExibition = new JLabel("Current Macro");
+        private JLabel microExibition = new JLabel("Current Micro");
+        private JLabel currentMicroLabel = new JLabel();
+        private JLabel currentMacroLabel = new JLabel();
 
-    //CPU state labels
-    private JLabel programCounterLabel = new JLabel("PC: 0");
-    private JLabel acumulatorLabel = new JLabel("AC: 0");
-    private JLabel stackPointerLabel = new JLabel("SP: 0");
-    private JLabel irLabel = new JLabel("IR: 0");
-    private JLabel mpcLabel = new JLabel("MPC: 0");
-    private JLabel marLabel = new JLabel("MAR: 0");
-    private JLabel mbrLabel = new JLabel("MBR: 0");
-    private JLabel mirLabel = new JLabel("MIR: 0");
+        //CPU state labels
+        private JLabel programCounterLabel = new JLabel("PC: 0");
+        private JLabel acumulatorLabel = new JLabel("AC: 0");
+        private JLabel stackPointerLabel = new JLabel("SP: 0");
+        private JLabel irLabel = new JLabel("IR: 0");
+        private JLabel mpcLabel = new JLabel("MPC: 0");
+        private JLabel marLabel = new JLabel("MAR: 0");
+        private JLabel mbrLabel = new JLabel("MBR: 0");
+        private JLabel mirLabel = new JLabel("MIR: 0");
 
-    public Screen(){
+        //Text box
+        private JTextArea textBox = new JTextArea("Carregue seu programa aqui...");
+        // Coloque o JTextArea dentro de um JScrollPane para ter barra de rolagem
+        private JScrollPane textScrollPane = new JScrollPane(textBox);
+
+
+        public Screen(){
 
         Cores paleta = new Cores();
         Constantes constantes = new Constantes();
         Font textButtonFont = new Font("Times New Roman", Font.BOLD, constantes.buttonFontSize);
         Font textLabelFont = new Font("Times new Roman", Font.BOLD, constantes.labelFontSize);
 
+        textBox.setFont(textLabelFont);
+        textBox.setLineWrap(true);
+        textBox.setWrapStyleWord(true);
+
+        // Configure a posição e o tamanho do JScrollPane
+        textScrollPane.setBounds(constantes.textFieldPosx, constantes.textFieldPosY, constantes.textFieldSizeX, constantes.textFieldSizeY);
+        
         //Screen
         this.screen.setSize(constantes.screenWidth, constantes.screenHght);
         this.screen.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -109,28 +122,31 @@ public class Screen {
         this.screen.add(mpcLabel); this.screen.add(marLabel);
         this.screen.add(mbrLabel); this.screen.add(mirLabel);
 
+        // this.screen.add(textBox);
+        this.screen.add(textScrollPane);
+
         //Button actions
         nextMacroButton.addActionListener(action -> macroInstruction(action));
         nextMicroButton.addActionListener(action -> nextMicroInstruction(action));
         clearProgramButton.addActionListener(action -> closeProgram(action));
         runProgramButton.addActionListener(action ->runProgram(action));
         loadProgramButton.addActionListener(action->loadingProgram(action));
-    }
+        }
 
-    private void modifyLabel(JLabel label, int positionX, int positionY, int sizeX,
-                             int sizeY, Font font, Color collorForeground){
+        private void modifyLabel(JLabel label, int positionX, int positionY, int sizeX,
+                                int sizeY, Font font, Color collorForeground){
         label.setBounds(positionX, positionY, sizeX, sizeY);
         label.setFont(font); label.setForeground(collorForeground);
-    }
+        }
 
-    private void modifyButton(JButton button, int positionX, int positionY, int sizeX,
-                              int sizeY, Font font, Color collorForeground, Color collorBackground){
+        private void modifyButton(JButton button, int positionX, int positionY, int sizeX,
+                                int sizeY, Font font, Color collorForeground, Color collorBackground){
         button.setBounds(positionX, positionY, sizeX, sizeY);
         button.setFont(font); button.setForeground(collorForeground);
         button.setBackground(collorBackground);
-    }
+        }
 
-    private void atualizarContadores(){
+        private void atualizarContadores(){
         this.programCounterLabel.setText("PC: " + this.cpu.getRegister()[0].get());
         this.acumulatorLabel.setText("AC: " + this.cpu.getRegister()[1].get());
         this.stackPointerLabel.setText("SP: " + this.cpu.getRegister()[2].get());
@@ -139,46 +155,52 @@ public class Screen {
         this.mbrLabel.setText("MBR: " + this.cpu.getMBR().get());
         this.mirLabel.setText("MIR: " + this.cpu.getMIR().get());
         this.mpcLabel.setText("MPC: " + this.cpu.getMPC().get());
-    }
-
-    private void runProgram(ActionEvent actionEvent){
-        if (this.loaded) {
-            cpu.run();
-            atualizarContadores();
         }
-    }
 
-    private void closeProgram(ActionEvent actionEvent){
-        System.exit(0);
-    }
+        private void runProgram(ActionEvent actionEvent){
+        if (this.loaded) {
+                cpu.run();
+                atualizarContadores();
+        }
+        }
 
-    private void macroInstruction(ActionEvent actionEvent){
+        private void closeProgram(ActionEvent actionEvent){
+                cpu.clearProgram();
+                atualizarContadores();
+        }
+
+        private void macroInstruction(ActionEvent actionEvent){
         if(this.loaded) {
-            this.cpu.nextMacro();
-            this.currentMacroLabel.setText("" + this.cpu.getCurrentMacroInst());
-            this.currentMicroLabel.setText("" + this.cpu.getCurrentMicroInst());
-            atualizarContadores();
+                this.cpu.nextMacro();
+                this.currentMacroLabel.setText("" + this.cpu.getCurrentMacroInst());
+                this.currentMicroLabel.setText("" + this.cpu.getCurrentMicroInst());
+                atualizarContadores();
         }
         else{
-            this.currentMacroLabel.setText("Carregue o programa antes");
+                this.currentMacroLabel.setText("Carregue o programa antes");
         }
-    }
+        }
 
-    private void nextMicroInstruction(ActionEvent actionEvent){
+        private void nextMicroInstruction(ActionEvent actionEvent){
         if(this.loaded) {
-            this.cpu.nextMicro();
-            this.currentMicroLabel.setText("" + this.cpu.getCurrentMicroInst());
-            this.currentMacroLabel.setText("" + this.cpu.getCurrentMacroInst());
-            atualizarContadores();
+                this.cpu.nextMicro();
+                this.currentMicroLabel.setText("" + this.cpu.getCurrentMicroInst());
+                this.currentMacroLabel.setText("" + this.cpu.getCurrentMacroInst());
+                atualizarContadores();
         } else {
-            this.currentMicroLabel.setText("Carregue o programa antes");
+                this.currentMicroLabel.setText("Carregue o programa antes");
         }
-    }
+        }
 
-    private void loadingProgram(ActionEvent actionEvent){
-        this.cpu.loadProgram("dataFiles/macroprogram.txt");
-        this.loaded = true;
-        this.currentMacroLabel.setText("Programa carregado!");
-        this.currentMicroLabel.setText("Pronto para iniciar.");
-    }
+        private void loadingProgram(ActionEvent actionEvent){
+                // this.cpu.loadProgram("dataFiles/macroprogram.txt");
+                // this.loaded = true;
+                // this.currentMacroLabel.setText("Programa carregado!");
+                // this.currentMicroLabel.setText("Pronto para iniciar.");
+                extractProgram();
+        }
+        private void extractProgram() {
+                int startOffset;
+                int endOffset;
+        }
 }

@@ -32,6 +32,6 @@ public class Constantes {
     int mirLabelPosX = 710, mirLabelPosY = 250;
 
     //Main Label
-    int mainLabelSizeX = 500, mainLabelSizeY = 400;
-    int mainLabelPosx = 25, mainLabelPosY = 25;
+    int textFieldSizeX = 500, textFieldSizeY = 400;
+    int textFieldPosx = 25, textFieldPosY = 25;
 }

@@ -134,18 +134,22 @@ public class CPU {
     }
 
     public void nextMicro(){
-        runFirstSubcycle();
-        runSecondSubcycle();
-        runThirdSubcycle();
-        runFourthSubcycle();
-        saveCPUState();
+        if (registers[3].get() != -1)
+        {
+            runFirstSubcycle();
+            runSecondSubcycle();
+            runThirdSubcycle();
+            runFourthSubcycle();
+            saveCPUState();
+        }
+
     }
 
     public void nextMacro(){
         boolean sameInstruction = true;
         short startCurrentMacroCode = registers[3].get();
 
-        while(sameInstruction){
+        while(sameInstruction && startCurrentMacroCode != -1){
             nextMicro();
             if(this.registers[3].get() != startCurrentMacroCode){
                 sameInstruction = false;
@@ -157,7 +161,7 @@ public class CPU {
 
     public void run() {
         boolean running = true;
-        startLog("C:\\Users\\Guilherme\\IdeaProjects\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\MEMORY_LOG.txt");
+        startLog("C:\\Users\\caiop\\Desktop\\Caio\\Faculdade\\projetos\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\EXECUTION_LOG.txt");
         saveCPUState();
         while (running) {
             runFirstSubcycle();
@@ -171,7 +175,7 @@ public class CPU {
             }
         }
         endLog();
-        MP.createMemoryLog("C:\\Users\\Guilherme\\IdeaProjects\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\MEMORY_LOG.txt");
+        MP.createMemoryLog("C:\\Users\\caiop\\Desktop\\Caio\\Faculdade\\projetos\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\MEMORY_LOG.txt");
     }
 
     public void calculateNextMPC() {
@@ -296,6 +300,27 @@ public class CPU {
         }
         this.logWriter.println("#-----------------------------------------#");
         this.logWriter.println();
+    }
+
+    public void loadProgram(String [] instructions) {
+        clearProgram();
+        // interpertrar as instruções usando o assembler
+        // e usar o método add da classe MainMemory para
+        // carregas as instrucoes convertidas da string
+        
+    }
+
+    public void clearProgram() {
+        MP.clearMemory();
+        short zero = 0;
+        MIR.set(zero);
+        MAR.set(zero);
+        MPC.set(zero);
+        MBR.set(zero);
+
+        for (int i = 0; i < 16; i++) {
+            registers[i].set(zero);
+        }
     }
 
     private String getMicroisntCode() {

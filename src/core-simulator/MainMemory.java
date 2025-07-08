@@ -97,4 +97,10 @@ public class MainMemory {
             e.printStackTrace();
         }
     }
+    public void clearMemory() {
+        for (int i = 0; i < MAIN_MEMORY_SIZE; i++) { 
+            memory[i] = 0;                               
+        }
+        this.manualSetPointer = 0;
+    }
 }
