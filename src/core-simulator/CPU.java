@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 
 public class CPU {
@@ -15,16 +16,16 @@ public class CPU {
     private Register MPC = new Register("MPC", (short)0);
     private Register32bit MIR = new Register32bit("MIR", 0);
     public MainMemory MP;
-    /* Barramentos A , B e C 
+    /* Barramentos A , B e C
      * Latches A e B
      * Valores do decoder A, B e C
-    */
+     */
     private short busLine_A, busLine_B, busLine_C;
     private short latch_A, latch_B;
     private byte decodedA, decodedB, decodedC;
 
     // Registradores, Memória principal, ALU , AMUX e Shifter
-    private Clock clock;
+    Clock clock;
     private Register [] registers;
     private int [] controlMemory;
     private ALU alu;
@@ -66,9 +67,10 @@ public class CPU {
     }
 
     public void loadProgram(String filepath) {
+        this.registers[2].set((short) 4096);
         macroInstructionTable = FileParser.loadMP(MP, filepath);
     }
-    
+
     public void runFirstSubcycle() {
         MIR.set(controlMemory[MPC.get()]);
         if (MP.isReadEnabled()) {
@@ -160,9 +162,15 @@ public class CPU {
     }
 
     public void run() {
+        runWithObserver(cpu -> {}); // Roda a simulação sem um observador (sem delay)
+    }
+
+    public void runWithObserver(Consumer<CPU> observer) {
         boolean running = true;
-        startLog("C:\\Users\\caiop\\Desktop\\Caio\\Faculdade\\projetos\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\EXECUTION_LOG.txt");
+        startLog("EXECUTION_LOG.txt");
         saveCPUState();
+        observer.accept(this); // Notifica o estado inicial
+
         while (running) {
             runFirstSubcycle();
             runSecondSubcycle();
@@ -170,13 +178,16 @@ public class CPU {
             runFourthSubcycle();
             clock.incrementCounter();
             saveCPUState();
+            observer.accept(this); // Notifica a UI para atualizar
+
             if (registers[3].get() == -1) {
                 running = false;
             }
         }
         endLog();
-        MP.createMemoryLog("C:\\Users\\caiop\\Desktop\\Caio\\Faculdade\\projetos\\Simulador-MIC-1\\src\\core-simulator\\dataFiles\\MEMORY_LOG.txt");
+        MP.createMemoryLog("MEMORY_LOG.txt");
     }
+
 
     public void calculateNextMPC() {
         byte controlSignal_COND = get_COND_Field();
@@ -191,7 +202,7 @@ public class CPU {
                     nextMPC = addr;
                 }
                 break;
-                
+
             case 0b10:
                 if(bitZ) {
                     nextMPC = addr;
@@ -254,7 +265,7 @@ public class CPU {
     }
 
     // LOG FUNCTIONS
-  
+
     private void startLog(String filename) {
         try {
             BufferedWriter bfw = new BufferedWriter(new FileWriter(filename));
@@ -267,7 +278,7 @@ public class CPU {
             this.logWriter = null;
         }
     }
-    
+
     private void endLog() {
         if (this.logWriter != null) {
             this.logWriter.close();
@@ -302,14 +313,6 @@ public class CPU {
         this.logWriter.println();
     }
 
-    public void loadProgram(String [] instructions) {
-        clearProgram();
-        // interpertrar as instruções usando o assembler
-        // e usar o método add da classe MainMemory para
-        // carregas as instrucoes convertidas da string
-        
-    }
-
     public void clearProgram() {
         MP.clearMemory();
         short zero = 0;
@@ -321,6 +324,7 @@ public class CPU {
         for (int i = 0; i < 16; i++) {
             registers[i].set(zero);
         }
+        clock.reset();
     }
 
     private String getMicroisntCode() {
@@ -328,41 +332,38 @@ public class CPU {
     }
 
     private String getMacroinstCode() {
-        return macroInstructionTable.getOrDefault(registers[3].get(), "UNKNOWN");    
+        return macroInstructionTable.getOrDefault(registers[3].get(), "UNKNOWN");
     }
-        
+
     public void printCPUState() {
 
-    System.out.println("\n---------- CPU STATE ----------");
-    System.out.printf("--- Clock %d ---\n", clock.getClockCounter());
-    System.out.println("Sub-cycle: " + clock.get());
+        System.out.println("\n---------- CPU STATE ----------");
+        System.out.printf("--- Clock %d ---\n", clock.getClockCounter());
+        System.out.println("Sub-cycle: " + clock.get());
 
-    System.out.println("\n--- Control Registers ---");
-    System.out.println("MPC: " + MPC.get());
-    System.out.printf("MIR: (%d)\n", MIR.get());
-    System.out.println("MAR: " + MAR.get());
-    System.out.println("MBR: " + MBR.get());
+        System.out.println("\n--- Control Registers ---");
+        System.out.println("MPC: " + MPC.get());
+        System.out.printf("MIR: (%d)\n", MIR.get());
+        System.out.println("MAR: " + MAR.get());
+        System.out.println("MBR: " + MBR.get());
 
-    System.out.println("\n--- Internal Latches & Buses ---");
-    System.out.println("Latch A: " + latch_A);
-    System.out.println("Latch B: " + latch_B);
-    System.out.println("Bus C (Shifter Out): " + shifter.getOuput());
+        System.out.println("\n--- Internal Latches & Buses ---");
+        System.out.println("Latch A: " + latch_A);
+        System.out.println("Latch B: " + latch_B);
+        System.out.println("Bus C (Shifter Out): " + shifter.getOuput());
 
-    System.out.println("\n--- ALU State ---");
-    System.out.println("ALU Out: " + alu.getOutput());
+        System.out.println("\n--- ALU State ---");
+        System.out.println("ALU Out: " + alu.getOutput());
 
-    System.out.println("\n--- Main Registers ---");
-    for (int i = 0; i < registers.length; i++) {
-        System.out.printf("  %-5s: %-6d", registers[i].getName(), registers[i].get());
-        if (i % 2 != 0) {
-            System.out.println();
+        System.out.println("\n--- Main Registers ---");
+        for (int i = 0; i < registers.length; i++) {
+            System.out.printf("  %-5s: %-6d", registers[i].getName(), registers[i].get());
+            if (i % 2 != 0) {
+                System.out.println();
+            }
         }
-    }
 
-    // Você pode decidir se quer os campos do MIR no arquivo de log também.
-    // printMIRFieldsToFile(System.out); 
-
-    System.out.println("---------------------------------\n");
+        System.out.println("---------------------------------\n");
     }
 
     // Funções de decode dos campos da microinstrução
@@ -415,9 +416,5 @@ public class CPU {
 
     public Register32bit getMIR(){
         return this.MIR;
-    }
-
-    public ALU getAlu() {
-        return this.alu;
     }
 }

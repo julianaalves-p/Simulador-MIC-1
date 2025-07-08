@@ -18,4 +18,9 @@ public class Clock {
     public void incrementCounter() {
         this.clockCounter++;
     }
+
+    public void reset() {
+        this.currentSubcycle = 0;
+        this.clockCounter = 0;
+    }
 }

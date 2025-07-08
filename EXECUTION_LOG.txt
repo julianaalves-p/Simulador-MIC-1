@@ -1,384 +1,6 @@
 #----- CPU Execution Log -----#
 
 < --- CLOCK CYCLE 0 --- >
-CURRENT MICROINST.: mar:=pc; rd;
-CURRENT MACROINST.: UNKNOWN
-
-< Control Registers >
-MIR: 0
-MPC: 0
-MAR: 0
-MBR: 0
-
-< Main Registers >
-  PC   : 0       AC   : 0     
-  SP   : 4096    IR   : 0     
-  TIR  : 0       0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 1 --- >
-CURRENT MICROINST.: pc:=pc+1; rd;
-CURRENT MACROINST.: UNKNOWN
-
-< Control Registers >
-MIR: 12582912
-MPC: 1
-MAR: 0
-MBR: 0
-
-< Main Registers >
-  PC   : 0       AC   : 0     
-  SP   : 4096    IR   : 0     
-  TIR  : 0       0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 2 --- >
-CURRENT MICROINST.: ir:=mbr; if n then goto 28;
-CURRENT MACROINST.: UNKNOWN
-
-< Control Registers >
-MIR: 5244416
-MPC: 2
-MAR: 0
-MBR: 28682
-
-< Main Registers >
-  PC   : 1       AC   : 0     
-  SP   : 4096    IR   : 0     
-  TIR  : 0       0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 3 --- >
-CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
-CURRENT MACROINST.: LOCO 10
-
-< Control Registers >
-MIR: -1340932068
-MPC: 3
-MAR: 0
-MBR: 28682
-
-< Main Registers >
-  PC   : 1       AC   : 0     
-  SP   : 4096    IR   : 28682 
-  TIR  : 0       0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 4 --- >
-CURRENT MICROINST.: tir:=lshift(tir); if n then goto 25;
-CURRENT MACROINST.: LOCO 10
-
-< Control Registers >
-MIR: 605303571
-MPC: 19
-MAR: 0
-MBR: 28682
-
-< Main Registers >
-  PC   : 1       AC   : 0     
-  SP   : 4096    IR   : 28682 
-  TIR  : -16344  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 5 --- >
-CURRENT MICROINST.: alu:=tir; if n then goto 27;
-CURRENT MACROINST.: LOCO 10
-
-< Control Registers >
-MIR: 873727001
-MPC: 25
-MAR: 0
-MBR: 28682
-
-< Main Registers >
-  PC   : 1       AC   : 0     
-  SP   : 4096    IR   : 28682 
-  TIR  : -32688  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 6 --- >
-CURRENT MICROINST.: ac:=band(ir,amask); goto 0;
-CURRENT MACROINST.: LOCO 10
-
-< Control Registers >
-MIR: 805307419
-MPC: 27
-MAR: 0
-MBR: 28682
-
-< Main Registers >
-  PC   : 1       AC   : 0     
-  SP   : 4096    IR   : 28682 
-  TIR  : -32688  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 7 --- >
-CURRENT MICROINST.: mar:=pc; rd;
-CURRENT MACROINST.: LOCO 10
-
-< Control Registers >
-MIR: 1745958912
-MPC: 0
-MAR: 0
-MBR: 28682
-
-< Main Registers >
-  PC   : 1       AC   : 10    
-  SP   : 4096    IR   : 28682 
-  TIR  : -32688  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 8 --- >
-CURRENT MICROINST.: pc:=pc+1; rd;
-CURRENT MACROINST.: LOCO 10
-
-< Control Registers >
-MIR: 12582912
-MPC: 1
-MAR: 1
-MBR: 28682
-
-< Main Registers >
-  PC   : 1       AC   : 10    
-  SP   : 4096    IR   : 28682 
-  TIR  : -32688  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 9 --- >
-CURRENT MICROINST.: ir:=mbr; if n then goto 28;
-CURRENT MACROINST.: LOCO 10
-
-< Control Registers >
-MIR: 5244416
-MPC: 2
-MAR: 1
-MBR: 5095
-
-< Main Registers >
-  PC   : 2       AC   : 10    
-  SP   : 4096    IR   : 28682 
-  TIR  : -32688  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 10 --- >
-CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
-CURRENT MACROINST.: STOD 999
-
-< Control Registers >
-MIR: -1340932068
-MPC: 3
-MAR: 1
-MBR: 5095
-
-< Main Registers >
-  PC   : 2       AC   : 10    
-  SP   : 4096    IR   : 5095  
-  TIR  : -32688  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 11 --- >
-CURRENT MICROINST.: tir:= lshift(tir); if n then goto 11;
-CURRENT MACROINST.: STOD 999
-
-< Control Registers >
-MIR: 605303571
-MPC: 4
-MAR: 1
-MBR: 5095
-
-< Main Registers >
-  PC   : 2       AC   : 10    
-  SP   : 4096    IR   : 5095  
-  TIR  : 20380   0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 12 --- >
-CURRENT MICROINST.: alu:=tir; if n then goto 9;
-CURRENT MACROINST.: STOD 999
-
-< Control Registers >
-MIR: 873726987
-MPC: 5
-MAR: 1
-MBR: 5095
-
-< Main Registers >
-  PC   : 2       AC   : 10    
-  SP   : 4096    IR   : 5095  
-  TIR  : -24776  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 13 --- >
-CURRENT MICROINST.: mar:=ir; mbr:=ac; wr;
-CURRENT MACROINST.: STOD 999
-
-< Control Registers >
-MIR: 805307401
-MPC: 9
-MAR: 1
-MBR: 5095
-
-< Main Registers >
-  PC   : 2       AC   : 10    
-  SP   : 4096    IR   : 5095  
-  TIR  : -24776  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 14 --- >
-CURRENT MICROINST.: wr; goto 0;
-CURRENT MACROINST.: STOD 999
-
-< Control Registers >
-MIR: 295710976
-MPC: 10
-MAR: 5095
-MBR: 10
-
-< Main Registers >
-  PC   : 2       AC   : 10    
-  SP   : 4096    IR   : 5095  
-  TIR  : -24776  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 15 --- >
-CURRENT MICROINST.: mar:=pc; rd;
-CURRENT MACROINST.: STOD 999
-
-< Control Registers >
-MIR: 1612709888
-MPC: 0
-MAR: 5095
-MBR: 10
-
-< Main Registers >
-  PC   : 2       AC   : 10    
-  SP   : 4096    IR   : 5095  
-  TIR  : -24776  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 16 --- >
-CURRENT MICROINST.: pc:=pc+1; rd;
-CURRENT MACROINST.: STOD 999
-
-< Control Registers >
-MIR: 12582912
-MPC: 1
-MAR: 2
-MBR: 10
-
-< Main Registers >
-  PC   : 2       AC   : 10    
-  SP   : 4096    IR   : 5095  
-  TIR  : -24776  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 17 --- >
-CURRENT MICROINST.: ir:=mbr; if n then goto 28;
-CURRENT MACROINST.: STOD 999
-
-< Control Registers >
-MIR: 5244416
-MPC: 2
-MAR: 2
-MBR: 28679
-
-< Main Registers >
-  PC   : 3       AC   : 10    
-  SP   : 4096    IR   : 5095  
-  TIR  : -24776  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : 0       B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 18 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: LOCO 7
 
@@ -399,7 +21,7 @@ MBR: 28679
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 19 --- >
+< --- CLOCK CYCLE 1 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 25;
 CURRENT MACROINST.: LOCO 7
 
@@ -420,7 +42,7 @@ MBR: 28679
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 20 --- >
+< --- CLOCK CYCLE 2 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 27;
 CURRENT MACROINST.: LOCO 7
 
@@ -441,7 +63,7 @@ MBR: 28679
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 21 --- >
+< --- CLOCK CYCLE 3 --- >
 CURRENT MICROINST.: ac:=band(ir,amask); goto 0;
 CURRENT MACROINST.: LOCO 7
 
@@ -462,7 +84,7 @@ MBR: 28679
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 22 --- >
+< --- CLOCK CYCLE 4 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: LOCO 7
 
@@ -483,7 +105,7 @@ MBR: 28679
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 23 --- >
+< --- CLOCK CYCLE 5 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: LOCO 7
 
@@ -504,7 +126,7 @@ MBR: 28679
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 24 --- >
+< --- CLOCK CYCLE 6 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: LOCO 7
 
@@ -525,7 +147,7 @@ MBR: 5111
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 25 --- >
+< --- CLOCK CYCLE 7 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: STOD 1015
 
@@ -546,7 +168,7 @@ MBR: 5111
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 26 --- >
+< --- CLOCK CYCLE 8 --- >
 CURRENT MICROINST.: tir:= lshift(tir); if n then goto 11;
 CURRENT MACROINST.: STOD 1015
 
@@ -567,7 +189,7 @@ MBR: 5111
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 27 --- >
+< --- CLOCK CYCLE 9 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 9;
 CURRENT MACROINST.: STOD 1015
 
@@ -588,7 +210,7 @@ MBR: 5111
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 28 --- >
+< --- CLOCK CYCLE 10 --- >
 CURRENT MICROINST.: mar:=ir; mbr:=ac; wr;
 CURRENT MACROINST.: STOD 1015
 
@@ -609,7 +231,7 @@ MBR: 5111
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 29 --- >
+< --- CLOCK CYCLE 11 --- >
 CURRENT MICROINST.: wr; goto 0;
 CURRENT MACROINST.: STOD 1015
 
@@ -630,7 +252,7 @@ MBR: 7
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 30 --- >
+< --- CLOCK CYCLE 12 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: STOD 1015
 
@@ -651,7 +273,7 @@ MBR: 7
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 31 --- >
+< --- CLOCK CYCLE 13 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: STOD 1015
 
@@ -672,7 +294,7 @@ MBR: 7
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 32 --- >
+< --- CLOCK CYCLE 14 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: STOD 1015
 
@@ -693,7 +315,7 @@ MBR: 28673
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 33 --- >
+< --- CLOCK CYCLE 15 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: LOCO 1
 
@@ -714,7 +336,7 @@ MBR: 28673
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 34 --- >
+< --- CLOCK CYCLE 16 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 25;
 CURRENT MACROINST.: LOCO 1
 
@@ -735,7 +357,7 @@ MBR: 28673
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 35 --- >
+< --- CLOCK CYCLE 17 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 27;
 CURRENT MACROINST.: LOCO 1
 
@@ -756,7 +378,7 @@ MBR: 28673
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 36 --- >
+< --- CLOCK CYCLE 18 --- >
 CURRENT MICROINST.: ac:=band(ir,amask); goto 0;
 CURRENT MACROINST.: LOCO 1
 
@@ -777,7 +399,7 @@ MBR: 28673
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 37 --- >
+< --- CLOCK CYCLE 19 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: LOCO 1
 
@@ -798,7 +420,7 @@ MBR: 28673
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 38 --- >
+< --- CLOCK CYCLE 20 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: LOCO 1
 
@@ -819,7 +441,7 @@ MBR: 28673
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 39 --- >
+< --- CLOCK CYCLE 21 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: LOCO 1
 
@@ -840,7 +462,7 @@ MBR: 5096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 40 --- >
+< --- CLOCK CYCLE 22 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: STOD 1000
 
@@ -861,7 +483,7 @@ MBR: 5096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 41 --- >
+< --- CLOCK CYCLE 23 --- >
 CURRENT MICROINST.: tir:= lshift(tir); if n then goto 11;
 CURRENT MACROINST.: STOD 1000
 
@@ -882,7 +504,7 @@ MBR: 5096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 42 --- >
+< --- CLOCK CYCLE 24 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 9;
 CURRENT MACROINST.: STOD 1000
 
@@ -903,7 +525,7 @@ MBR: 5096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 43 --- >
+< --- CLOCK CYCLE 25 --- >
 CURRENT MICROINST.: mar:=ir; mbr:=ac; wr;
 CURRENT MACROINST.: STOD 1000
 
@@ -924,7 +546,7 @@ MBR: 5096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 44 --- >
+< --- CLOCK CYCLE 26 --- >
 CURRENT MICROINST.: wr; goto 0;
 CURRENT MACROINST.: STOD 1000
 
@@ -945,7 +567,7 @@ MBR: 1
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 45 --- >
+< --- CLOCK CYCLE 27 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: STOD 1000
 
@@ -966,7 +588,7 @@ MBR: 1
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 46 --- >
+< --- CLOCK CYCLE 28 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: STOD 1000
 
@@ -987,7 +609,7 @@ MBR: 1
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 47 --- >
+< --- CLOCK CYCLE 29 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: STOD 1000
 
@@ -1008,7 +630,7 @@ MBR: 28674
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 48 --- >
+< --- CLOCK CYCLE 30 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: LOCO 2
 
@@ -1029,7 +651,7 @@ MBR: 28674
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 49 --- >
+< --- CLOCK CYCLE 31 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 25;
 CURRENT MACROINST.: LOCO 2
 
@@ -1050,7 +672,7 @@ MBR: 28674
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 50 --- >
+< --- CLOCK CYCLE 32 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 27;
 CURRENT MACROINST.: LOCO 2
 
@@ -1071,7 +693,7 @@ MBR: 28674
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 51 --- >
+< --- CLOCK CYCLE 33 --- >
 CURRENT MICROINST.: ac:=band(ir,amask); goto 0;
 CURRENT MACROINST.: LOCO 2
 
@@ -1092,7 +714,7 @@ MBR: 28674
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 52 --- >
+< --- CLOCK CYCLE 34 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: LOCO 2
 
@@ -1113,7 +735,7 @@ MBR: 28674
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 53 --- >
+< --- CLOCK CYCLE 35 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: LOCO 2
 
@@ -1134,7 +756,7 @@ MBR: 28674
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 54 --- >
+< --- CLOCK CYCLE 36 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: LOCO 2
 
@@ -1155,7 +777,7 @@ MBR: 5116
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 55 --- >
+< --- CLOCK CYCLE 37 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: STOD 1020
 
@@ -1176,7 +798,7 @@ MBR: 5116
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 56 --- >
+< --- CLOCK CYCLE 38 --- >
 CURRENT MICROINST.: tir:= lshift(tir); if n then goto 11;
 CURRENT MACROINST.: STOD 1020
 
@@ -1197,7 +819,7 @@ MBR: 5116
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 57 --- >
+< --- CLOCK CYCLE 39 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 9;
 CURRENT MACROINST.: STOD 1020
 
@@ -1218,7 +840,7 @@ MBR: 5116
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 58 --- >
+< --- CLOCK CYCLE 40 --- >
 CURRENT MICROINST.: mar:=ir; mbr:=ac; wr;
 CURRENT MACROINST.: STOD 1020
 
@@ -1239,7 +861,7 @@ MBR: 5116
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 59 --- >
+< --- CLOCK CYCLE 41 --- >
 CURRENT MICROINST.: wr; goto 0;
 CURRENT MACROINST.: STOD 1020
 
@@ -1260,7 +882,7 @@ MBR: 2
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 60 --- >
+< --- CLOCK CYCLE 42 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: STOD 1020
 
@@ -1281,7 +903,7 @@ MBR: 2
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 61 --- >
+< --- CLOCK CYCLE 43 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: STOD 1020
 
@@ -1302,7 +924,7 @@ MBR: 2
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 62 --- >
+< --- CLOCK CYCLE 44 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: STOD 1020
 
@@ -1323,7 +945,7 @@ MBR: 28722
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 63 --- >
+< --- CLOCK CYCLE 45 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: LOCO 50
 
@@ -1344,7 +966,7 @@ MBR: 28722
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 64 --- >
+< --- CLOCK CYCLE 46 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 25;
 CURRENT MACROINST.: LOCO 50
 
@@ -1365,7 +987,7 @@ MBR: 28722
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 65 --- >
+< --- CLOCK CYCLE 47 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 27;
 CURRENT MACROINST.: LOCO 50
 
@@ -1386,7 +1008,7 @@ MBR: 28722
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 66 --- >
+< --- CLOCK CYCLE 48 --- >
 CURRENT MICROINST.: ac:=band(ir,amask); goto 0;
 CURRENT MACROINST.: LOCO 50
 
@@ -1407,7 +1029,7 @@ MBR: 28722
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 67 --- >
+< --- CLOCK CYCLE 49 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: LOCO 50
 
@@ -1428,7 +1050,7 @@ MBR: 28722
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 68 --- >
+< --- CLOCK CYCLE 50 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: LOCO 50
 
@@ -1449,7 +1071,7 @@ MBR: 28722
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 69 --- >
+< --- CLOCK CYCLE 51 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: LOCO 50
 
@@ -1470,7 +1092,7 @@ MBR: 5103
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 70 --- >
+< --- CLOCK CYCLE 52 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: STOD 1007
 
@@ -1491,7 +1113,7 @@ MBR: 5103
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 71 --- >
+< --- CLOCK CYCLE 53 --- >
 CURRENT MICROINST.: tir:= lshift(tir); if n then goto 11;
 CURRENT MACROINST.: STOD 1007
 
@@ -1512,7 +1134,7 @@ MBR: 5103
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 72 --- >
+< --- CLOCK CYCLE 54 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 9;
 CURRENT MACROINST.: STOD 1007
 
@@ -1533,7 +1155,7 @@ MBR: 5103
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 73 --- >
+< --- CLOCK CYCLE 55 --- >
 CURRENT MICROINST.: mar:=ir; mbr:=ac; wr;
 CURRENT MACROINST.: STOD 1007
 
@@ -1554,7 +1176,7 @@ MBR: 5103
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 74 --- >
+< --- CLOCK CYCLE 56 --- >
 CURRENT MICROINST.: wr; goto 0;
 CURRENT MACROINST.: STOD 1007
 
@@ -1575,7 +1197,7 @@ MBR: 50
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 75 --- >
+< --- CLOCK CYCLE 57 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: STOD 1007
 
@@ -1596,7 +1218,7 @@ MBR: 50
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 76 --- >
+< --- CLOCK CYCLE 58 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: STOD 1007
 
@@ -1617,7 +1239,7 @@ MBR: 50
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 77 --- >
+< --- CLOCK CYCLE 59 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: STOD 1007
 
@@ -1638,7 +1260,7 @@ MBR: 999
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 78 --- >
+< --- CLOCK CYCLE 60 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: LODD 999
 
@@ -1659,7 +1281,7 @@ MBR: 999
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 79 --- >
+< --- CLOCK CYCLE 61 --- >
 CURRENT MICROINST.: tir:= lshift(tir); if n then goto 11;
 CURRENT MACROINST.: LODD 999
 
@@ -1680,7 +1302,7 @@ MBR: 999
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 80 --- >
+< --- CLOCK CYCLE 62 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 9;
 CURRENT MACROINST.: LODD 999
 
@@ -1701,7 +1323,7 @@ MBR: 999
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 81 --- >
+< --- CLOCK CYCLE 63 --- >
 CURRENT MICROINST.: mar:=ir; rd;
 CURRENT MACROINST.: LODD 999
 
@@ -1722,7 +1344,7 @@ MBR: 999
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 82 --- >
+< --- CLOCK CYCLE 64 --- >
 CURRENT MICROINST.: rd;
 CURRENT MACROINST.: LODD 999
 
@@ -1743,7 +1365,7 @@ MBR: 999
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 83 --- >
+< --- CLOCK CYCLE 65 --- >
 CURRENT MICROINST.: ac:=mbr; goto 0;
 CURRENT MACROINST.: LODD 999
 
@@ -1764,7 +1386,7 @@ MBR: 10
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 84 --- >
+< --- CLOCK CYCLE 66 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: LODD 999
 
@@ -1785,7 +1407,7 @@ MBR: 10
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 85 --- >
+< --- CLOCK CYCLE 67 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: LODD 999
 
@@ -1806,7 +1428,7 @@ MBR: 10
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 86 --- >
+< --- CLOCK CYCLE 68 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: LODD 999
 
@@ -1827,7 +1449,7 @@ MBR: 13303
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 87 --- >
+< --- CLOCK CYCLE 69 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: SUBD 1015
 
@@ -1848,7 +1470,7 @@ MBR: 13303
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 88 --- >
+< --- CLOCK CYCLE 70 --- >
 CURRENT MICROINST.: tir:= lshift(tir); if n then goto 11;
 CURRENT MACROINST.: SUBD 1015
 
@@ -1869,7 +1491,7 @@ MBR: 13303
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 89 --- >
+< --- CLOCK CYCLE 71 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 15;
 CURRENT MACROINST.: SUBD 1015
 
@@ -1890,7 +1512,7 @@ MBR: 13303
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 90 --- >
+< --- CLOCK CYCLE 72 --- >
 CURRENT MICROINST.: mar:=ir; rd;
 CURRENT MACROINST.: SUBD 1015
 
@@ -1911,7 +1533,7 @@ MBR: 13303
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 91 --- >
+< --- CLOCK CYCLE 73 --- >
 CURRENT MICROINST.: ac:=ac+1; rd;
 CURRENT MACROINST.: SUBD 1015
 
@@ -1932,7 +1554,7 @@ MBR: 13303
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 92 --- >
+< --- CLOCK CYCLE 74 --- >
 CURRENT MICROINST.: a:=inv(mbr);
 CURRENT MACROINST.: SUBD 1015
 
@@ -1953,7 +1575,7 @@ MBR: 7
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 93 --- >
+< --- CLOCK CYCLE 75 --- >
 CURRENT MICROINST.: ac:=ac+a; goto 0;
 CURRENT MACROINST.: SUBD 1015
 
@@ -1974,7 +1596,7 @@ MBR: 7
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 94 --- >
+< --- CLOCK CYCLE 76 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: SUBD 1015
 
@@ -1995,7 +1617,7 @@ MBR: 7
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 95 --- >
+< --- CLOCK CYCLE 77 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: SUBD 1015
 
@@ -2016,7 +1638,7 @@ MBR: 7
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 96 --- >
+< --- CLOCK CYCLE 78 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: SUBD 1015
 
@@ -2037,7 +1659,7 @@ MBR: -16355
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 97 --- >
+< --- CLOCK CYCLE 79 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
 CURRENT MACROINST.: JNEG 29
 
@@ -2058,7 +1680,7 @@ MBR: -16355
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 98 --- >
+< --- CLOCK CYCLE 80 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 46;
 CURRENT MACROINST.: JNEG 29
 
@@ -2079,7 +1701,7 @@ MBR: -16355
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 99 --- >
+< --- CLOCK CYCLE 81 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 44;
 CURRENT MACROINST.: JNEG 29
 
@@ -2100,7 +1722,7 @@ MBR: -16355
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 100 --- >
+< --- CLOCK CYCLE 82 --- >
 CURRENT MICROINST.: alu:=ac; if n then goto 22;
 CURRENT MACROINST.: JNEG 29
 
@@ -2121,7 +1743,7 @@ MBR: -16355
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 101 --- >
+< --- CLOCK CYCLE 83 --- >
 CURRENT MICROINST.: goto 0;
 CURRENT MACROINST.: JNEG 29
 
@@ -2142,7 +1764,7 @@ MBR: -16355
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 102 --- >
+< --- CLOCK CYCLE 84 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: JNEG 29
 
@@ -2163,7 +1785,7 @@ MBR: -16355
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 103 --- >
+< --- CLOCK CYCLE 85 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: JNEG 29
 
@@ -2184,7 +1806,7 @@ MBR: -16355
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 104 --- >
+< --- CLOCK CYCLE 86 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: JNEG 29
 
@@ -2205,7 +1827,7 @@ MBR: 1020
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 105 --- >
+< --- CLOCK CYCLE 87 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: LODD 1020
 
@@ -2226,7 +1848,7 @@ MBR: 1020
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 106 --- >
+< --- CLOCK CYCLE 88 --- >
 CURRENT MICROINST.: tir:= lshift(tir); if n then goto 11;
 CURRENT MACROINST.: LODD 1020
 
@@ -2247,7 +1869,7 @@ MBR: 1020
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 107 --- >
+< --- CLOCK CYCLE 89 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 9;
 CURRENT MACROINST.: LODD 1020
 
@@ -2268,7 +1890,7 @@ MBR: 1020
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 108 --- >
+< --- CLOCK CYCLE 90 --- >
 CURRENT MICROINST.: mar:=ir; rd;
 CURRENT MACROINST.: LODD 1020
 
@@ -2289,7 +1911,7 @@ MBR: 1020
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 109 --- >
+< --- CLOCK CYCLE 91 --- >
 CURRENT MICROINST.: rd;
 CURRENT MACROINST.: LODD 1020
 
@@ -2310,7 +1932,7 @@ MBR: 1020
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 110 --- >
+< --- CLOCK CYCLE 92 --- >
 CURRENT MICROINST.: ac:=mbr; goto 0;
 CURRENT MACROINST.: LODD 1020
 
@@ -2331,7 +1953,7 @@ MBR: 2
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 111 --- >
+< --- CLOCK CYCLE 93 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: LODD 1020
 
@@ -2352,7 +1974,7 @@ MBR: 2
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 112 --- >
+< --- CLOCK CYCLE 94 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: LODD 1020
 
@@ -2373,7 +1995,7 @@ MBR: 2
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 113 --- >
+< --- CLOCK CYCLE 95 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: LODD 1020
 
@@ -2394,7 +2016,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 114 --- >
+< --- CLOCK CYCLE 96 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
 CURRENT MACROINST.: PUSH
 
@@ -2415,7 +2037,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 115 --- >
+< --- CLOCK CYCLE 97 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 46;
 CURRENT MACROINST.: PUSH
 
@@ -2436,7 +2058,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 116 --- >
+< --- CLOCK CYCLE 98 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 50;
 CURRENT MACROINST.: PUSH
 
@@ -2457,7 +2079,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 117 --- >
+< --- CLOCK CYCLE 99 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 65;
 CURRENT MACROINST.: PUSH
 
@@ -2478,7 +2100,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 118 --- >
+< --- CLOCK CYCLE 100 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 59;
 CURRENT MACROINST.: PUSH
 
@@ -2499,7 +2121,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 119 --- >
+< --- CLOCK CYCLE 101 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 62;
 CURRENT MACROINST.: PUSH
 
@@ -2520,7 +2142,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 120 --- >
+< --- CLOCK CYCLE 102 --- >
 CURRENT MICROINST.: sp:=sp+(-1);
 CURRENT MACROINST.: PUSH
 
@@ -2541,7 +2163,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 121 --- >
+< --- CLOCK CYCLE 103 --- >
 CURRENT MICROINST.: mar:=sp; mbr:=ac; wr; goto 10;
 CURRENT MACROINST.: PUSH
 
@@ -2562,7 +2184,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 122 --- >
+< --- CLOCK CYCLE 104 --- >
 CURRENT MICROINST.: wr; goto 0;
 CURRENT MACROINST.: PUSH
 
@@ -2583,7 +2205,7 @@ MBR: 2
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 123 --- >
+< --- CLOCK CYCLE 105 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: PUSH
 
@@ -2604,7 +2226,7 @@ MBR: 2
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 124 --- >
+< --- CLOCK CYCLE 106 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: PUSH
 
@@ -2625,7 +2247,7 @@ MBR: 2
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 125 --- >
+< --- CLOCK CYCLE 107 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: PUSH
 
@@ -2646,7 +2268,7 @@ MBR: -24576
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 126 --- >
+< --- CLOCK CYCLE 108 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
 CURRENT MACROINST.: ADDL 0
 
@@ -2667,7 +2289,7 @@ MBR: -24576
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 127 --- >
+< --- CLOCK CYCLE 109 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 35;
 CURRENT MACROINST.: ADDL 0
 
@@ -2688,7 +2310,7 @@ MBR: -24576
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 128 --- >
+< --- CLOCK CYCLE 110 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 38;
 CURRENT MACROINST.: ADDL 0
 
@@ -2709,7 +2331,7 @@ MBR: -24576
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 129 --- >
+< --- CLOCK CYCLE 111 --- >
 CURRENT MICROINST.: a:=ir+sp;
 CURRENT MACROINST.: ADDL 0
 
@@ -2730,7 +2352,7 @@ MBR: -24576
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 130 --- >
+< --- CLOCK CYCLE 112 --- >
 CURRENT MICROINST.: mar:=a; rd; goto 13;
 CURRENT MACROINST.: ADDL 0
 
@@ -2751,7 +2373,7 @@ MBR: -24576
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 131 --- >
+< --- CLOCK CYCLE 113 --- >
 CURRENT MICROINST.: rd;
 CURRENT MACROINST.: ADDL 0
 
@@ -2763,6 +2385,384 @@ MBR: -24576
 
 < Main Registers >
   PC   : 16      AC   : 2     
+  SP   : 4095    IR   : -24576
+  TIR  : 0       0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -20481  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 114 --- >
+CURRENT MICROINST.: ac:=mbr+ac; goto 0;
+CURRENT MACROINST.: ADDL 0
+
+< Control Registers >
+MIR: 4194304
+MPC: 14
+MAR: -20481
+MBR: 2
+
+< Main Registers >
+  PC   : 16      AC   : 2     
+  SP   : 4095    IR   : -24576
+  TIR  : 0       0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -20481  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 115 --- >
+CURRENT MICROINST.: mar:=pc; rd;
+CURRENT MACROINST.: ADDL 0
+
+< Control Registers >
+MIR: -535752704
+MPC: 0
+MAR: -20481
+MBR: 2
+
+< Main Registers >
+  PC   : 16      AC   : 4     
+  SP   : 4095    IR   : -24576
+  TIR  : 0       0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -20481  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 116 --- >
+CURRENT MICROINST.: pc:=pc+1; rd;
+CURRENT MACROINST.: ADDL 0
+
+< Control Registers >
+MIR: 12582912
+MPC: 1
+MAR: 16
+MBR: 2
+
+< Main Registers >
+  PC   : 16      AC   : 4     
+  SP   : 4095    IR   : -24576
+  TIR  : 0       0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -20481  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 117 --- >
+CURRENT MICROINST.: ir:=mbr; if n then goto 28;
+CURRENT MACROINST.: ADDL 0
+
+< Control Registers >
+MIR: 5244416
+MPC: 2
+MAR: 16
+MBR: -28672
+
+< Main Registers >
+  PC   : 17      AC   : 4     
+  SP   : 4095    IR   : -24576
+  TIR  : 0       0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -20481  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 118 --- >
+CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
+CURRENT MACROINST.: STOL 0
+
+< Control Registers >
+MIR: -1340932068
+MPC: 28
+MAR: 16
+MBR: -28672
+
+< Main Registers >
+  PC   : 17      AC   : 4     
+  SP   : 4095    IR   : -28672
+  TIR  : 0       0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -20481  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 119 --- >
+CURRENT MICROINST.: tir:=lshift(tir); if n then goto 35;
+CURRENT MACROINST.: STOL 0
+
+< Control Registers >
+MIR: 605303592
+MPC: 29
+MAR: 16
+MBR: -28672
+
+< Main Registers >
+  PC   : 17      AC   : 4     
+  SP   : 4095    IR   : -28672
+  TIR  : 16384   0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -20481  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 120 --- >
+CURRENT MICROINST.: alu:=tir; if n then goto 33;
+CURRENT MACROINST.: STOL 0
+
+< Control Registers >
+MIR: 873727011
+MPC: 30
+MAR: 16
+MBR: -28672
+
+< Main Registers >
+  PC   : 17      AC   : 4     
+  SP   : 4095    IR   : -28672
+  TIR  : -32768  0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -20481  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 121 --- >
+CURRENT MICROINST.: a:=ir+sp;
+CURRENT MACROINST.: STOL 0
+
+< Control Registers >
+MIR: 805307425
+MPC: 33
+MAR: 16
+MBR: -28672
+
+< Main Registers >
+  PC   : 17      AC   : 4     
+  SP   : 4095    IR   : -28672
+  TIR  : -32768  0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -20481  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 122 --- >
+CURRENT MICROINST.: mar:=a; mbr:=ac; wr; goto 10;
+CURRENT MACROINST.: STOL 0
+
+< Control Registers >
+MIR: 1716736
+MPC: 34
+MAR: 16
+MBR: -28672
+
+< Main Registers >
+  PC   : 17      AC   : 4     
+  SP   : 4095    IR   : -28672
+  TIR  : -32768  0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -24577  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 123 --- >
+CURRENT MICROINST.: wr; goto 0;
+CURRENT MACROINST.: STOL 0
+
+< Control Registers >
+MIR: 1906352394
+MPC: 10
+MAR: -24577
+MBR: 4
+
+< Main Registers >
+  PC   : 17      AC   : 4     
+  SP   : 4095    IR   : -28672
+  TIR  : -32768  0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -24577  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 124 --- >
+CURRENT MICROINST.: mar:=pc; rd;
+CURRENT MACROINST.: STOL 0
+
+< Control Registers >
+MIR: 1612709888
+MPC: 0
+MAR: -24577
+MBR: 4
+
+< Main Registers >
+  PC   : 17      AC   : 4     
+  SP   : 4095    IR   : -28672
+  TIR  : -32768  0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -24577  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 125 --- >
+CURRENT MICROINST.: pc:=pc+1; rd;
+CURRENT MACROINST.: STOL 0
+
+< Control Registers >
+MIR: 12582912
+MPC: 1
+MAR: 17
+MBR: 4
+
+< Main Registers >
+  PC   : 17      AC   : 4     
+  SP   : 4095    IR   : -28672
+  TIR  : -32768  0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -24577  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 126 --- >
+CURRENT MICROINST.: ir:=mbr; if n then goto 28;
+CURRENT MACROINST.: STOL 0
+
+< Control Registers >
+MIR: 5244416
+MPC: 2
+MAR: 17
+MBR: -24576
+
+< Main Registers >
+  PC   : 18      AC   : 4     
+  SP   : 4095    IR   : -28672
+  TIR  : -32768  0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -24577  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 127 --- >
+CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
+CURRENT MACROINST.: ADDL 0
+
+< Control Registers >
+MIR: -1340932068
+MPC: 28
+MAR: 17
+MBR: -24576
+
+< Main Registers >
+  PC   : 18      AC   : 4     
+  SP   : 4095    IR   : -24576
+  TIR  : -32768  0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -24577  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 128 --- >
+CURRENT MICROINST.: tir:=lshift(tir); if n then goto 35;
+CURRENT MACROINST.: ADDL 0
+
+< Control Registers >
+MIR: 605303592
+MPC: 29
+MAR: 17
+MBR: -24576
+
+< Main Registers >
+  PC   : 18      AC   : 4     
+  SP   : 4095    IR   : -24576
+  TIR  : -32768  0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -24577  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 129 --- >
+CURRENT MICROINST.: alu:=tir; if n then goto 38;
+CURRENT MACROINST.: ADDL 0
+
+< Control Registers >
+MIR: 873727011
+MPC: 35
+MAR: 17
+MBR: -24576
+
+< Main Registers >
+  PC   : 18      AC   : 4     
+  SP   : 4095    IR   : -24576
+  TIR  : 0       0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -24577  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 130 --- >
+CURRENT MICROINST.: a:=ir+sp;
+CURRENT MACROINST.: ADDL 0
+
+< Control Registers >
+MIR: 805307430
+MPC: 36
+MAR: 17
+MBR: -24576
+
+< Main Registers >
+  PC   : 18      AC   : 4     
+  SP   : 4095    IR   : -24576
+  TIR  : 0       0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -24577  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 131 --- >
+CURRENT MICROINST.: mar:=a; rd; goto 13;
+CURRENT MACROINST.: ADDL 0
+
+< Control Registers >
+MIR: 1716736
+MPC: 37
+MAR: 17
+MBR: -24576
+
+< Main Registers >
+  PC   : 18      AC   : 4     
   SP   : 4095    IR   : -24576
   TIR  : 0       0    : 0     
   +1   : 1       -1   : -1    
@@ -2773,17 +2773,17 @@ MBR: -24576
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 132 --- >
-CURRENT MICROINST.: ac:=mbr+ac; goto 0;
+CURRENT MICROINST.: rd;
 CURRENT MACROINST.: ADDL 0
 
 < Control Registers >
-MIR: 4194304
-MPC: 14
+MIR: 1623236621
+MPC: 13
 MAR: -20481
-MBR: 2
+MBR: -24576
 
 < Main Registers >
-  PC   : 16      AC   : 2     
+  PC   : 18      AC   : 4     
   SP   : 4095    IR   : -24576
   TIR  : 0       0    : 0     
   +1   : 1       -1   : -1    
@@ -2794,17 +2794,17 @@ MBR: 2
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 133 --- >
-CURRENT MICROINST.: mar:=pc; rd;
+CURRENT MICROINST.: ac:=mbr+ac; goto 0;
 CURRENT MACROINST.: ADDL 0
 
 < Control Registers >
-MIR: -535752704
-MPC: 0
+MIR: 4194304
+MPC: 14
 MAR: -20481
-MBR: 2
+MBR: 4
 
 < Main Registers >
-  PC   : 16      AC   : 4     
+  PC   : 18      AC   : 4     
   SP   : 4095    IR   : -24576
   TIR  : 0       0    : 0     
   +1   : 1       -1   : -1    
@@ -2815,17 +2815,17 @@ MBR: 2
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 134 --- >
-CURRENT MICROINST.: pc:=pc+1; rd;
+CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: ADDL 0
 
 < Control Registers >
-MIR: 12582912
-MPC: 1
-MAR: 16
-MBR: 2
+MIR: -535752704
+MPC: 0
+MAR: -20481
+MBR: 4
 
 < Main Registers >
-  PC   : 16      AC   : 4     
+  PC   : 18      AC   : 8     
   SP   : 4095    IR   : -24576
   TIR  : 0       0    : 0     
   +1   : 1       -1   : -1    
@@ -2836,17 +2836,17 @@ MBR: 2
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 135 --- >
-CURRENT MICROINST.: ir:=mbr; if n then goto 28;
+CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: ADDL 0
 
 < Control Registers >
-MIR: 5244416
-MPC: 2
-MAR: 16
-MBR: -28672
+MIR: 12582912
+MPC: 1
+MAR: 18
+MBR: 4
 
 < Main Registers >
-  PC   : 17      AC   : 4     
+  PC   : 18      AC   : 8     
   SP   : 4095    IR   : -24576
   TIR  : 0       0    : 0     
   +1   : 1       -1   : -1    
@@ -2857,18 +2857,18 @@ MBR: -28672
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 136 --- >
-CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
-CURRENT MACROINST.: STOL 0
+CURRENT MICROINST.: ir:=mbr; if n then goto 28;
+CURRENT MACROINST.: ADDL 0
 
 < Control Registers >
-MIR: -1340932068
-MPC: 28
-MAR: 16
+MIR: 5244416
+MPC: 2
+MAR: 18
 MBR: -28672
 
 < Main Registers >
-  PC   : 17      AC   : 4     
-  SP   : 4095    IR   : -28672
+  PC   : 19      AC   : 8     
+  SP   : 4095    IR   : -24576
   TIR  : 0       0    : 0     
   +1   : 1       -1   : -1    
   AMASK: 4095    SMASK: 255   
@@ -2878,17 +2878,38 @@ MBR: -28672
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 137 --- >
+CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
+CURRENT MACROINST.: STOL 0
+
+< Control Registers >
+MIR: -1340932068
+MPC: 28
+MAR: 18
+MBR: -28672
+
+< Main Registers >
+  PC   : 19      AC   : 8     
+  SP   : 4095    IR   : -28672
+  TIR  : 0       0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -20481  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 138 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 35;
 CURRENT MACROINST.: STOL 0
 
 < Control Registers >
 MIR: 605303592
 MPC: 29
-MAR: 16
+MAR: 18
 MBR: -28672
 
 < Main Registers >
-  PC   : 17      AC   : 4     
+  PC   : 19      AC   : 8     
   SP   : 4095    IR   : -28672
   TIR  : 16384   0    : 0     
   +1   : 1       -1   : -1    
@@ -2898,39 +2919,18 @@ MBR: -28672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 138 --- >
+< --- CLOCK CYCLE 139 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 33;
 CURRENT MACROINST.: STOL 0
 
 < Control Registers >
 MIR: 873727011
 MPC: 30
-MAR: 16
+MAR: 18
 MBR: -28672
 
 < Main Registers >
-  PC   : 17      AC   : 4     
-  SP   : 4095    IR   : -28672
-  TIR  : -32768  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -20481  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 139 --- >
-CURRENT MICROINST.: a:=ir+sp;
-CURRENT MACROINST.: STOL 0
-
-< Control Registers >
-MIR: 805307425
-MPC: 33
-MAR: 16
-MBR: -28672
-
-< Main Registers >
-  PC   : 17      AC   : 4     
+  PC   : 19      AC   : 8     
   SP   : 4095    IR   : -28672
   TIR  : -32768  0    : 0     
   +1   : 1       -1   : -1    
@@ -2941,38 +2941,38 @@ MBR: -28672
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 140 --- >
+CURRENT MICROINST.: a:=ir+sp;
+CURRENT MACROINST.: STOL 0
+
+< Control Registers >
+MIR: 805307425
+MPC: 33
+MAR: 18
+MBR: -28672
+
+< Main Registers >
+  PC   : 19      AC   : 8     
+  SP   : 4095    IR   : -28672
+  TIR  : -32768  0    : 0     
+  +1   : 1       -1   : -1    
+  AMASK: 4095    SMASK: 255   
+  A    : -20481  B    : 0     
+  C    : 0       D    : 0     
+  E    : 0       F    : 0     
+#-----------------------------------------#
+
+< --- CLOCK CYCLE 141 --- >
 CURRENT MICROINST.: mar:=a; mbr:=ac; wr; goto 10;
 CURRENT MACROINST.: STOL 0
 
 < Control Registers >
 MIR: 1716736
 MPC: 34
-MAR: 16
+MAR: 18
 MBR: -28672
 
 < Main Registers >
-  PC   : 17      AC   : 4     
-  SP   : 4095    IR   : -28672
-  TIR  : -32768  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -24577  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 141 --- >
-CURRENT MICROINST.: wr; goto 0;
-CURRENT MACROINST.: STOL 0
-
-< Control Registers >
-MIR: 1906352394
-MPC: 10
-MAR: -24577
-MBR: 4
-
-< Main Registers >
-  PC   : 17      AC   : 4     
+  PC   : 19      AC   : 8     
   SP   : 4095    IR   : -28672
   TIR  : -32768  0    : 0     
   +1   : 1       -1   : -1    
@@ -2983,17 +2983,17 @@ MBR: 4
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 142 --- >
-CURRENT MICROINST.: mar:=pc; rd;
+CURRENT MICROINST.: wr; goto 0;
 CURRENT MACROINST.: STOL 0
 
 < Control Registers >
-MIR: 1612709888
-MPC: 0
+MIR: 1906352394
+MPC: 10
 MAR: -24577
-MBR: 4
+MBR: 8
 
 < Main Registers >
-  PC   : 17      AC   : 4     
+  PC   : 19      AC   : 8     
   SP   : 4095    IR   : -28672
   TIR  : -32768  0    : 0     
   +1   : 1       -1   : -1    
@@ -3004,17 +3004,17 @@ MBR: 4
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 143 --- >
-CURRENT MICROINST.: pc:=pc+1; rd;
+CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: STOL 0
 
 < Control Registers >
-MIR: 12582912
-MPC: 1
-MAR: 17
-MBR: 4
+MIR: 1612709888
+MPC: 0
+MAR: -24577
+MBR: 8
 
 < Main Registers >
-  PC   : 17      AC   : 4     
+  PC   : 19      AC   : 8     
   SP   : 4095    IR   : -28672
   TIR  : -32768  0    : 0     
   +1   : 1       -1   : -1    
@@ -3025,17 +3025,17 @@ MBR: 4
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 144 --- >
-CURRENT MICROINST.: ir:=mbr; if n then goto 28;
+CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: STOL 0
 
 < Control Registers >
-MIR: 5244416
-MPC: 2
-MAR: 17
-MBR: -24576
+MIR: 12582912
+MPC: 1
+MAR: 19
+MBR: 8
 
 < Main Registers >
-  PC   : 18      AC   : 4     
+  PC   : 19      AC   : 8     
   SP   : 4095    IR   : -28672
   TIR  : -32768  0    : 0     
   +1   : 1       -1   : -1    
@@ -3046,18 +3046,18 @@ MBR: -24576
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 145 --- >
-CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
-CURRENT MACROINST.: ADDL 0
+CURRENT MICROINST.: ir:=mbr; if n then goto 28;
+CURRENT MACROINST.: STOL 0
 
 < Control Registers >
-MIR: -1340932068
-MPC: 28
-MAR: 17
+MIR: 5244416
+MPC: 2
+MAR: 19
 MBR: -24576
 
 < Main Registers >
-  PC   : 18      AC   : 4     
-  SP   : 4095    IR   : -24576
+  PC   : 20      AC   : 8     
+  SP   : 4095    IR   : -28672
   TIR  : -32768  0    : 0     
   +1   : 1       -1   : -1    
   AMASK: 4095    SMASK: 255   
@@ -3067,17 +3067,17 @@ MBR: -24576
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 146 --- >
-CURRENT MICROINST.: tir:=lshift(tir); if n then goto 35;
+CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
 CURRENT MACROINST.: ADDL 0
 
 < Control Registers >
-MIR: 605303592
-MPC: 29
-MAR: 17
+MIR: -1340932068
+MPC: 28
+MAR: 19
 MBR: -24576
 
 < Main Registers >
-  PC   : 18      AC   : 4     
+  PC   : 20      AC   : 8     
   SP   : 4095    IR   : -24576
   TIR  : -32768  0    : 0     
   +1   : 1       -1   : -1    
@@ -3088,19 +3088,19 @@ MBR: -24576
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 147 --- >
-CURRENT MICROINST.: alu:=tir; if n then goto 38;
+CURRENT MICROINST.: tir:=lshift(tir); if n then goto 35;
 CURRENT MACROINST.: ADDL 0
 
 < Control Registers >
-MIR: 873727011
-MPC: 35
-MAR: 17
+MIR: 605303592
+MPC: 29
+MAR: 19
 MBR: -24576
 
 < Main Registers >
-  PC   : 18      AC   : 4     
+  PC   : 20      AC   : 8     
   SP   : 4095    IR   : -24576
-  TIR  : 0       0    : 0     
+  TIR  : -32768  0    : 0     
   +1   : 1       -1   : -1    
   AMASK: 4095    SMASK: 255   
   A    : -24577  B    : 0     
@@ -3109,17 +3109,17 @@ MBR: -24576
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 148 --- >
-CURRENT MICROINST.: a:=ir+sp;
+CURRENT MICROINST.: alu:=tir; if n then goto 38;
 CURRENT MACROINST.: ADDL 0
 
 < Control Registers >
-MIR: 805307430
-MPC: 36
-MAR: 17
+MIR: 873727011
+MPC: 35
+MAR: 19
 MBR: -24576
 
 < Main Registers >
-  PC   : 18      AC   : 4     
+  PC   : 20      AC   : 8     
   SP   : 4095    IR   : -24576
   TIR  : 0       0    : 0     
   +1   : 1       -1   : -1    
@@ -3130,384 +3130,6 @@ MBR: -24576
 #-----------------------------------------#
 
 < --- CLOCK CYCLE 149 --- >
-CURRENT MICROINST.: mar:=a; rd; goto 13;
-CURRENT MACROINST.: ADDL 0
-
-< Control Registers >
-MIR: 1716736
-MPC: 37
-MAR: 17
-MBR: -24576
-
-< Main Registers >
-  PC   : 18      AC   : 4     
-  SP   : 4095    IR   : -24576
-  TIR  : 0       0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -20481  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 150 --- >
-CURRENT MICROINST.: rd;
-CURRENT MACROINST.: ADDL 0
-
-< Control Registers >
-MIR: 1623236621
-MPC: 13
-MAR: -20481
-MBR: -24576
-
-< Main Registers >
-  PC   : 18      AC   : 4     
-  SP   : 4095    IR   : -24576
-  TIR  : 0       0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -20481  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 151 --- >
-CURRENT MICROINST.: ac:=mbr+ac; goto 0;
-CURRENT MACROINST.: ADDL 0
-
-< Control Registers >
-MIR: 4194304
-MPC: 14
-MAR: -20481
-MBR: 4
-
-< Main Registers >
-  PC   : 18      AC   : 4     
-  SP   : 4095    IR   : -24576
-  TIR  : 0       0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -20481  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 152 --- >
-CURRENT MICROINST.: mar:=pc; rd;
-CURRENT MACROINST.: ADDL 0
-
-< Control Registers >
-MIR: -535752704
-MPC: 0
-MAR: -20481
-MBR: 4
-
-< Main Registers >
-  PC   : 18      AC   : 8     
-  SP   : 4095    IR   : -24576
-  TIR  : 0       0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -20481  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 153 --- >
-CURRENT MICROINST.: pc:=pc+1; rd;
-CURRENT MACROINST.: ADDL 0
-
-< Control Registers >
-MIR: 12582912
-MPC: 1
-MAR: 18
-MBR: 4
-
-< Main Registers >
-  PC   : 18      AC   : 8     
-  SP   : 4095    IR   : -24576
-  TIR  : 0       0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -20481  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 154 --- >
-CURRENT MICROINST.: ir:=mbr; if n then goto 28;
-CURRENT MACROINST.: ADDL 0
-
-< Control Registers >
-MIR: 5244416
-MPC: 2
-MAR: 18
-MBR: -28672
-
-< Main Registers >
-  PC   : 19      AC   : 8     
-  SP   : 4095    IR   : -24576
-  TIR  : 0       0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -20481  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 155 --- >
-CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
-CURRENT MACROINST.: STOL 0
-
-< Control Registers >
-MIR: -1340932068
-MPC: 28
-MAR: 18
-MBR: -28672
-
-< Main Registers >
-  PC   : 19      AC   : 8     
-  SP   : 4095    IR   : -28672
-  TIR  : 0       0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -20481  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 156 --- >
-CURRENT MICROINST.: tir:=lshift(tir); if n then goto 35;
-CURRENT MACROINST.: STOL 0
-
-< Control Registers >
-MIR: 605303592
-MPC: 29
-MAR: 18
-MBR: -28672
-
-< Main Registers >
-  PC   : 19      AC   : 8     
-  SP   : 4095    IR   : -28672
-  TIR  : 16384   0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -20481  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 157 --- >
-CURRENT MICROINST.: alu:=tir; if n then goto 33;
-CURRENT MACROINST.: STOL 0
-
-< Control Registers >
-MIR: 873727011
-MPC: 30
-MAR: 18
-MBR: -28672
-
-< Main Registers >
-  PC   : 19      AC   : 8     
-  SP   : 4095    IR   : -28672
-  TIR  : -32768  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -20481  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 158 --- >
-CURRENT MICROINST.: a:=ir+sp;
-CURRENT MACROINST.: STOL 0
-
-< Control Registers >
-MIR: 805307425
-MPC: 33
-MAR: 18
-MBR: -28672
-
-< Main Registers >
-  PC   : 19      AC   : 8     
-  SP   : 4095    IR   : -28672
-  TIR  : -32768  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -20481  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 159 --- >
-CURRENT MICROINST.: mar:=a; mbr:=ac; wr; goto 10;
-CURRENT MACROINST.: STOL 0
-
-< Control Registers >
-MIR: 1716736
-MPC: 34
-MAR: 18
-MBR: -28672
-
-< Main Registers >
-  PC   : 19      AC   : 8     
-  SP   : 4095    IR   : -28672
-  TIR  : -32768  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -24577  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 160 --- >
-CURRENT MICROINST.: wr; goto 0;
-CURRENT MACROINST.: STOL 0
-
-< Control Registers >
-MIR: 1906352394
-MPC: 10
-MAR: -24577
-MBR: 8
-
-< Main Registers >
-  PC   : 19      AC   : 8     
-  SP   : 4095    IR   : -28672
-  TIR  : -32768  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -24577  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 161 --- >
-CURRENT MICROINST.: mar:=pc; rd;
-CURRENT MACROINST.: STOL 0
-
-< Control Registers >
-MIR: 1612709888
-MPC: 0
-MAR: -24577
-MBR: 8
-
-< Main Registers >
-  PC   : 19      AC   : 8     
-  SP   : 4095    IR   : -28672
-  TIR  : -32768  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -24577  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 162 --- >
-CURRENT MICROINST.: pc:=pc+1; rd;
-CURRENT MACROINST.: STOL 0
-
-< Control Registers >
-MIR: 12582912
-MPC: 1
-MAR: 19
-MBR: 8
-
-< Main Registers >
-  PC   : 19      AC   : 8     
-  SP   : 4095    IR   : -28672
-  TIR  : -32768  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -24577  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 163 --- >
-CURRENT MICROINST.: ir:=mbr; if n then goto 28;
-CURRENT MACROINST.: STOL 0
-
-< Control Registers >
-MIR: 5244416
-MPC: 2
-MAR: 19
-MBR: -24576
-
-< Main Registers >
-  PC   : 20      AC   : 8     
-  SP   : 4095    IR   : -28672
-  TIR  : -32768  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -24577  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 164 --- >
-CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
-CURRENT MACROINST.: ADDL 0
-
-< Control Registers >
-MIR: -1340932068
-MPC: 28
-MAR: 19
-MBR: -24576
-
-< Main Registers >
-  PC   : 20      AC   : 8     
-  SP   : 4095    IR   : -24576
-  TIR  : -32768  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -24577  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 165 --- >
-CURRENT MICROINST.: tir:=lshift(tir); if n then goto 35;
-CURRENT MACROINST.: ADDL 0
-
-< Control Registers >
-MIR: 605303592
-MPC: 29
-MAR: 19
-MBR: -24576
-
-< Main Registers >
-  PC   : 20      AC   : 8     
-  SP   : 4095    IR   : -24576
-  TIR  : -32768  0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -24577  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 166 --- >
-CURRENT MICROINST.: alu:=tir; if n then goto 38;
-CURRENT MACROINST.: ADDL 0
-
-< Control Registers >
-MIR: 873727011
-MPC: 35
-MAR: 19
-MBR: -24576
-
-< Main Registers >
-  PC   : 20      AC   : 8     
-  SP   : 4095    IR   : -24576
-  TIR  : 0       0    : 0     
-  +1   : 1       -1   : -1    
-  AMASK: 4095    SMASK: 255   
-  A    : -24577  B    : 0     
-  C    : 0       D    : 0     
-  E    : 0       F    : 0     
-#-----------------------------------------#
-
-< --- CLOCK CYCLE 167 --- >
 CURRENT MICROINST.: a:=ir+sp;
 CURRENT MACROINST.: ADDL 0
 
@@ -3528,7 +3150,7 @@ MBR: -24576
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 168 --- >
+< --- CLOCK CYCLE 150 --- >
 CURRENT MICROINST.: mar:=a; rd; goto 13;
 CURRENT MACROINST.: ADDL 0
 
@@ -3549,7 +3171,7 @@ MBR: -24576
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 169 --- >
+< --- CLOCK CYCLE 151 --- >
 CURRENT MICROINST.: rd;
 CURRENT MACROINST.: ADDL 0
 
@@ -3570,7 +3192,7 @@ MBR: -24576
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 170 --- >
+< --- CLOCK CYCLE 152 --- >
 CURRENT MICROINST.: ac:=mbr+ac; goto 0;
 CURRENT MACROINST.: ADDL 0
 
@@ -3591,7 +3213,7 @@ MBR: 8
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 171 --- >
+< --- CLOCK CYCLE 153 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: ADDL 0
 
@@ -3612,7 +3234,7 @@ MBR: 8
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 172 --- >
+< --- CLOCK CYCLE 154 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: ADDL 0
 
@@ -3633,7 +3255,7 @@ MBR: 8
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 173 --- >
+< --- CLOCK CYCLE 155 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: ADDL 0
 
@@ -3654,7 +3276,7 @@ MBR: -28672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 174 --- >
+< --- CLOCK CYCLE 156 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
 CURRENT MACROINST.: STOL 0
 
@@ -3675,7 +3297,7 @@ MBR: -28672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 175 --- >
+< --- CLOCK CYCLE 157 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 35;
 CURRENT MACROINST.: STOL 0
 
@@ -3696,7 +3318,7 @@ MBR: -28672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 176 --- >
+< --- CLOCK CYCLE 158 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 33;
 CURRENT MACROINST.: STOL 0
 
@@ -3717,7 +3339,7 @@ MBR: -28672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 177 --- >
+< --- CLOCK CYCLE 159 --- >
 CURRENT MICROINST.: a:=ir+sp;
 CURRENT MACROINST.: STOL 0
 
@@ -3738,7 +3360,7 @@ MBR: -28672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 178 --- >
+< --- CLOCK CYCLE 160 --- >
 CURRENT MICROINST.: mar:=a; mbr:=ac; wr; goto 10;
 CURRENT MACROINST.: STOL 0
 
@@ -3759,7 +3381,7 @@ MBR: -28672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 179 --- >
+< --- CLOCK CYCLE 161 --- >
 CURRENT MICROINST.: wr; goto 0;
 CURRENT MACROINST.: STOL 0
 
@@ -3780,7 +3402,7 @@ MBR: 16
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 180 --- >
+< --- CLOCK CYCLE 162 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: STOL 0
 
@@ -3801,7 +3423,7 @@ MBR: 16
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 181 --- >
+< --- CLOCK CYCLE 163 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: STOL 0
 
@@ -3822,7 +3444,7 @@ MBR: 16
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 182 --- >
+< --- CLOCK CYCLE 164 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: STOL 0
 
@@ -3843,7 +3465,7 @@ MBR: 29672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 183 --- >
+< --- CLOCK CYCLE 165 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: LOCO 1000
 
@@ -3864,7 +3486,7 @@ MBR: 29672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 184 --- >
+< --- CLOCK CYCLE 166 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 25;
 CURRENT MACROINST.: LOCO 1000
 
@@ -3885,7 +3507,7 @@ MBR: 29672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 185 --- >
+< --- CLOCK CYCLE 167 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 27;
 CURRENT MACROINST.: LOCO 1000
 
@@ -3906,7 +3528,7 @@ MBR: 29672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 186 --- >
+< --- CLOCK CYCLE 168 --- >
 CURRENT MICROINST.: ac:=band(ir,amask); goto 0;
 CURRENT MACROINST.: LOCO 1000
 
@@ -3927,7 +3549,7 @@ MBR: 29672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 187 --- >
+< --- CLOCK CYCLE 169 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: LOCO 1000
 
@@ -3948,7 +3570,7 @@ MBR: 29672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 188 --- >
+< --- CLOCK CYCLE 170 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: LOCO 1000
 
@@ -3969,7 +3591,7 @@ MBR: 29672
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 189 --- >
+< --- CLOCK CYCLE 171 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: LOCO 1000
 
@@ -3990,7 +3612,7 @@ MBR: 9207
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 190 --- >
+< --- CLOCK CYCLE 172 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: ADDD 1015
 
@@ -4011,7 +3633,7 @@ MBR: 9207
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 191 --- >
+< --- CLOCK CYCLE 173 --- >
 CURRENT MICROINST.: tir:= lshift(tir); if n then goto 11;
 CURRENT MACROINST.: ADDD 1015
 
@@ -4032,7 +3654,7 @@ MBR: 9207
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 192 --- >
+< --- CLOCK CYCLE 174 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 15;
 CURRENT MACROINST.: ADDD 1015
 
@@ -4053,7 +3675,7 @@ MBR: 9207
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 193 --- >
+< --- CLOCK CYCLE 175 --- >
 CURRENT MICROINST.: mar:=ir; rd;
 CURRENT MACROINST.: ADDD 1015
 
@@ -4074,7 +3696,7 @@ MBR: 9207
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 194 --- >
+< --- CLOCK CYCLE 176 --- >
 CURRENT MICROINST.: rd;
 CURRENT MACROINST.: ADDD 1015
 
@@ -4095,7 +3717,7 @@ MBR: 9207
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 195 --- >
+< --- CLOCK CYCLE 177 --- >
 CURRENT MICROINST.: ac:=mbr+ac; goto 0;
 CURRENT MACROINST.: ADDD 1015
 
@@ -4116,7 +3738,7 @@ MBR: 7
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 196 --- >
+< --- CLOCK CYCLE 178 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: ADDD 1015
 
@@ -4137,7 +3759,7 @@ MBR: 7
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 197 --- >
+< --- CLOCK CYCLE 179 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: ADDD 1015
 
@@ -4158,7 +3780,7 @@ MBR: 7
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 198 --- >
+< --- CLOCK CYCLE 180 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: ADDD 1015
 
@@ -4179,7 +3801,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 199 --- >
+< --- CLOCK CYCLE 181 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
 CURRENT MACROINST.: PUSH
 
@@ -4200,7 +3822,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 200 --- >
+< --- CLOCK CYCLE 182 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 46;
 CURRENT MACROINST.: PUSH
 
@@ -4221,7 +3843,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 201 --- >
+< --- CLOCK CYCLE 183 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 50;
 CURRENT MACROINST.: PUSH
 
@@ -4242,7 +3864,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 202 --- >
+< --- CLOCK CYCLE 184 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 65;
 CURRENT MACROINST.: PUSH
 
@@ -4263,7 +3885,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 203 --- >
+< --- CLOCK CYCLE 185 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 59;
 CURRENT MACROINST.: PUSH
 
@@ -4284,7 +3906,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 204 --- >
+< --- CLOCK CYCLE 186 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 62;
 CURRENT MACROINST.: PUSH
 
@@ -4305,7 +3927,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 205 --- >
+< --- CLOCK CYCLE 187 --- >
 CURRENT MICROINST.: sp:=sp+(-1);
 CURRENT MACROINST.: PUSH
 
@@ -4326,7 +3948,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 206 --- >
+< --- CLOCK CYCLE 188 --- >
 CURRENT MICROINST.: mar:=sp; mbr:=ac; wr; goto 10;
 CURRENT MACROINST.: PUSH
 
@@ -4347,7 +3969,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 207 --- >
+< --- CLOCK CYCLE 189 --- >
 CURRENT MICROINST.: wr; goto 0;
 CURRENT MACROINST.: PUSH
 
@@ -4368,7 +3990,7 @@ MBR: 1007
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 208 --- >
+< --- CLOCK CYCLE 190 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: PUSH
 
@@ -4389,7 +4011,7 @@ MBR: 1007
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 209 --- >
+< --- CLOCK CYCLE 191 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: PUSH
 
@@ -4410,7 +4032,7 @@ MBR: 1007
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 210 --- >
+< --- CLOCK CYCLE 192 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: PUSH
 
@@ -4431,7 +4053,7 @@ MBR: -4096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 211 --- >
+< --- CLOCK CYCLE 193 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
 CURRENT MACROINST.: PSHI
 
@@ -4452,7 +4074,7 @@ MBR: -4096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 212 --- >
+< --- CLOCK CYCLE 194 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 46;
 CURRENT MACROINST.: PSHI
 
@@ -4473,7 +4095,7 @@ MBR: -4096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 213 --- >
+< --- CLOCK CYCLE 195 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 50;
 CURRENT MACROINST.: PSHI
 
@@ -4494,7 +4116,7 @@ MBR: -4096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 214 --- >
+< --- CLOCK CYCLE 196 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 65;
 CURRENT MACROINST.: PSHI
 
@@ -4515,7 +4137,7 @@ MBR: -4096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 215 --- >
+< --- CLOCK CYCLE 197 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 59;
 CURRENT MACROINST.: PSHI
 
@@ -4536,7 +4158,7 @@ MBR: -4096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 216 --- >
+< --- CLOCK CYCLE 198 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 56;
 CURRENT MACROINST.: PSHI
 
@@ -4557,7 +4179,7 @@ MBR: -4096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 217 --- >
+< --- CLOCK CYCLE 199 --- >
 CURRENT MICROINST.: mar:=ac; rd;
 CURRENT MACROINST.: PSHI
 
@@ -4578,7 +4200,7 @@ MBR: -4096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 218 --- >
+< --- CLOCK CYCLE 200 --- >
 CURRENT MICROINST.: sp:=sp+(-1); rd;
 CURRENT MACROINST.: PSHI
 
@@ -4599,7 +4221,7 @@ MBR: -4096
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 219 --- >
+< --- CLOCK CYCLE 201 --- >
 CURRENT MICROINST.: mar:=sp; wr; goto 10;
 CURRENT MACROINST.: PSHI
 
@@ -4620,7 +4242,7 @@ MBR: 50
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 220 --- >
+< --- CLOCK CYCLE 202 --- >
 CURRENT MICROINST.: wr; goto 0;
 CURRENT MACROINST.: PSHI
 
@@ -4641,7 +4263,7 @@ MBR: 50
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 221 --- >
+< --- CLOCK CYCLE 203 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: PSHI
 
@@ -4662,7 +4284,7 @@ MBR: 50
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 222 --- >
+< --- CLOCK CYCLE 204 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: PSHI
 
@@ -4683,7 +4305,7 @@ MBR: 50
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 223 --- >
+< --- CLOCK CYCLE 205 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: PSHI
 
@@ -4704,7 +4326,7 @@ MBR: -2560
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 224 --- >
+< --- CLOCK CYCLE 206 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
 CURRENT MACROINST.: POP
 
@@ -4725,7 +4347,7 @@ MBR: -2560
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 225 --- >
+< --- CLOCK CYCLE 207 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 46;
 CURRENT MACROINST.: POP
 
@@ -4746,7 +4368,7 @@ MBR: -2560
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 226 --- >
+< --- CLOCK CYCLE 208 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 50;
 CURRENT MACROINST.: POP
 
@@ -4767,7 +4389,7 @@ MBR: -2560
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 227 --- >
+< --- CLOCK CYCLE 209 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 65;
 CURRENT MACROINST.: POP
 
@@ -4788,7 +4410,7 @@ MBR: -2560
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 228 --- >
+< --- CLOCK CYCLE 210 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 59;
 CURRENT MACROINST.: POP
 
@@ -4809,7 +4431,7 @@ MBR: -2560
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 229 --- >
+< --- CLOCK CYCLE 211 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 62;
 CURRENT MACROINST.: POP
 
@@ -4830,7 +4452,7 @@ MBR: -2560
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 230 --- >
+< --- CLOCK CYCLE 212 --- >
 CURRENT MICROINST.: mar:=sp; sp:=sp+(+1); rd;
 CURRENT MACROINST.: POP
 
@@ -4851,7 +4473,7 @@ MBR: -2560
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 231 --- >
+< --- CLOCK CYCLE 213 --- >
 CURRENT MICROINST.: rd;
 CURRENT MACROINST.: POP
 
@@ -4872,7 +4494,7 @@ MBR: -2560
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 232 --- >
+< --- CLOCK CYCLE 214 --- >
 CURRENT MICROINST.: ac:=mbr; goto 0;
 CURRENT MACROINST.: POP
 
@@ -4893,7 +4515,7 @@ MBR: 50
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 233 --- >
+< --- CLOCK CYCLE 215 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: POP
 
@@ -4914,7 +4536,7 @@ MBR: 50
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 234 --- >
+< --- CLOCK CYCLE 216 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: POP
 
@@ -4935,7 +4557,7 @@ MBR: 50
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 235 --- >
+< --- CLOCK CYCLE 217 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: POP
 
@@ -4956,7 +4578,7 @@ MBR: -20479
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 236 --- >
+< --- CLOCK CYCLE 218 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
 CURRENT MACROINST.: SUBL 1
 
@@ -4977,7 +4599,7 @@ MBR: -20479
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 237 --- >
+< --- CLOCK CYCLE 219 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 35;
 CURRENT MACROINST.: SUBL 1
 
@@ -4998,7 +4620,7 @@ MBR: -20479
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 238 --- >
+< --- CLOCK CYCLE 220 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 38;
 CURRENT MACROINST.: SUBL 1
 
@@ -5019,7 +4641,7 @@ MBR: -20479
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 239 --- >
+< --- CLOCK CYCLE 221 --- >
 CURRENT MICROINST.: a:=ir+sp;
 CURRENT MACROINST.: SUBL 1
 
@@ -5040,7 +4662,7 @@ MBR: -20479
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 240 --- >
+< --- CLOCK CYCLE 222 --- >
 CURRENT MICROINST.: mar:=a; rd; goto 16;
 CURRENT MACROINST.: SUBL 1
 
@@ -5061,7 +4683,7 @@ MBR: -20479
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 241 --- >
+< --- CLOCK CYCLE 223 --- >
 CURRENT MICROINST.: ac:=ac+1; rd;
 CURRENT MACROINST.: SUBL 1
 
@@ -5082,7 +4704,7 @@ MBR: -20479
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 242 --- >
+< --- CLOCK CYCLE 224 --- >
 CURRENT MICROINST.: a:=inv(mbr);
 CURRENT MACROINST.: SUBL 1
 
@@ -5103,7 +4725,7 @@ MBR: 16
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 243 --- >
+< --- CLOCK CYCLE 225 --- >
 CURRENT MICROINST.: ac:=ac+a; goto 0;
 CURRENT MACROINST.: SUBL 1
 
@@ -5124,7 +4746,7 @@ MBR: 16
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 244 --- >
+< --- CLOCK CYCLE 226 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: SUBL 1
 
@@ -5145,7 +4767,7 @@ MBR: 16
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 245 --- >
+< --- CLOCK CYCLE 227 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: SUBL 1
 
@@ -5166,7 +4788,7 @@ MBR: 16
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 246 --- >
+< --- CLOCK CYCLE 228 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: SUBL 1
 
@@ -5187,7 +4809,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 247 --- >
+< --- CLOCK CYCLE 229 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
 CURRENT MACROINST.: PUSH
 
@@ -5208,7 +4830,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 248 --- >
+< --- CLOCK CYCLE 230 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 46;
 CURRENT MACROINST.: PUSH
 
@@ -5229,7 +4851,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 249 --- >
+< --- CLOCK CYCLE 231 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 50;
 CURRENT MACROINST.: PUSH
 
@@ -5250,7 +4872,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 250 --- >
+< --- CLOCK CYCLE 232 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 65;
 CURRENT MACROINST.: PUSH
 
@@ -5271,7 +4893,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 251 --- >
+< --- CLOCK CYCLE 233 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 59;
 CURRENT MACROINST.: PUSH
 
@@ -5292,7 +4914,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 252 --- >
+< --- CLOCK CYCLE 234 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 62;
 CURRENT MACROINST.: PUSH
 
@@ -5313,7 +4935,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 253 --- >
+< --- CLOCK CYCLE 235 --- >
 CURRENT MICROINST.: sp:=sp+(-1);
 CURRENT MACROINST.: PUSH
 
@@ -5334,7 +4956,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 254 --- >
+< --- CLOCK CYCLE 236 --- >
 CURRENT MICROINST.: mar:=sp; mbr:=ac; wr; goto 10;
 CURRENT MACROINST.: PUSH
 
@@ -5355,7 +4977,7 @@ MBR: -3072
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 255 --- >
+< --- CLOCK CYCLE 237 --- >
 CURRENT MICROINST.: wr; goto 0;
 CURRENT MACROINST.: PUSH
 
@@ -5376,7 +4998,7 @@ MBR: 34
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 256 --- >
+< --- CLOCK CYCLE 238 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: PUSH
 
@@ -5397,7 +5019,7 @@ MBR: 34
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 257 --- >
+< --- CLOCK CYCLE 239 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: PUSH
 
@@ -5418,7 +5040,7 @@ MBR: 34
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 258 --- >
+< --- CLOCK CYCLE 240 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: PUSH
 
@@ -5439,7 +5061,7 @@ MBR: -32767
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 259 --- >
+< --- CLOCK CYCLE 241 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
 CURRENT MACROINST.: LODL 1
 
@@ -5460,7 +5082,7 @@ MBR: -32767
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 260 --- >
+< --- CLOCK CYCLE 242 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 35;
 CURRENT MACROINST.: LODL 1
 
@@ -5481,7 +5103,7 @@ MBR: -32767
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 261 --- >
+< --- CLOCK CYCLE 243 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 33;
 CURRENT MACROINST.: LODL 1
 
@@ -5502,7 +5124,7 @@ MBR: -32767
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 262 --- >
+< --- CLOCK CYCLE 244 --- >
 CURRENT MICROINST.: a:=ir+sp;
 CURRENT MACROINST.: LODL 1
 
@@ -5523,7 +5145,7 @@ MBR: -32767
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 263 --- >
+< --- CLOCK CYCLE 245 --- >
 CURRENT MICROINST.: mar:=a; rd; goto 7;
 CURRENT MACROINST.: LODL 1
 
@@ -5544,7 +5166,7 @@ MBR: -32767
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 264 --- >
+< --- CLOCK CYCLE 246 --- >
 CURRENT MICROINST.: rd;
 CURRENT MACROINST.: LODL 1
 
@@ -5565,7 +5187,7 @@ MBR: -32767
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 265 --- >
+< --- CLOCK CYCLE 247 --- >
 CURRENT MICROINST.: ac:=mbr; goto 0;
 CURRENT MACROINST.: LODL 1
 
@@ -5586,7 +5208,7 @@ MBR: 1007
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 266 --- >
+< --- CLOCK CYCLE 248 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: LODL 1
 
@@ -5607,7 +5229,7 @@ MBR: 1007
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 267 --- >
+< --- CLOCK CYCLE 249 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: LODL 1
 
@@ -5628,7 +5250,7 @@ MBR: 1007
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 268 --- >
+< --- CLOCK CYCLE 250 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: LODL 1
 
@@ -5649,7 +5271,7 @@ MBR: -3584
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 269 --- >
+< --- CLOCK CYCLE 251 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
 CURRENT MACROINST.: POPI
 
@@ -5670,7 +5292,7 @@ MBR: -3584
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 270 --- >
+< --- CLOCK CYCLE 252 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 46;
 CURRENT MACROINST.: POPI
 
@@ -5691,7 +5313,7 @@ MBR: -3584
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 271 --- >
+< --- CLOCK CYCLE 253 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 50;
 CURRENT MACROINST.: POPI
 
@@ -5712,7 +5334,7 @@ MBR: -3584
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 272 --- >
+< --- CLOCK CYCLE 254 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 65;
 CURRENT MACROINST.: POPI
 
@@ -5733,7 +5355,7 @@ MBR: -3584
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 273 --- >
+< --- CLOCK CYCLE 255 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 59;
 CURRENT MACROINST.: POPI
 
@@ -5754,7 +5376,7 @@ MBR: -3584
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 274 --- >
+< --- CLOCK CYCLE 256 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 56;
 CURRENT MACROINST.: POPI
 
@@ -5775,7 +5397,7 @@ MBR: -3584
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 275 --- >
+< --- CLOCK CYCLE 257 --- >
 CURRENT MICROINST.: mar:=sp; sp:=sp+(+1); rd;
 CURRENT MACROINST.: POPI
 
@@ -5796,7 +5418,7 @@ MBR: -3584
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 276 --- >
+< --- CLOCK CYCLE 258 --- >
 CURRENT MICROINST.: rd;
 CURRENT MACROINST.: POPI
 
@@ -5817,7 +5439,7 @@ MBR: -3584
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 277 --- >
+< --- CLOCK CYCLE 259 --- >
 CURRENT MICROINST.: mar:=ac; wr; goto 10;
 CURRENT MACROINST.: POPI
 
@@ -5838,7 +5460,7 @@ MBR: 34
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 278 --- >
+< --- CLOCK CYCLE 260 --- >
 CURRENT MICROINST.: wr; goto 0;
 CURRENT MACROINST.: POPI
 
@@ -5859,7 +5481,7 @@ MBR: 34
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 279 --- >
+< --- CLOCK CYCLE 261 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: POPI
 
@@ -5880,7 +5502,7 @@ MBR: 34
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 280 --- >
+< --- CLOCK CYCLE 262 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: POPI
 
@@ -5901,7 +5523,7 @@ MBR: 34
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 281 --- >
+< --- CLOCK CYCLE 263 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: POPI
 
@@ -5922,7 +5544,7 @@ MBR: 32258
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 282 --- >
+< --- CLOCK CYCLE 264 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 19;
 CURRENT MACROINST.: INSP 2
 
@@ -5943,7 +5565,7 @@ MBR: 32258
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 283 --- >
+< --- CLOCK CYCLE 265 --- >
 CURRENT MICROINST.: tir:=lshift(tir); if n then goto 25;
 CURRENT MACROINST.: INSP 2
 
@@ -5964,7 +5586,7 @@ MBR: 32258
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 284 --- >
+< --- CLOCK CYCLE 266 --- >
 CURRENT MICROINST.: alu:=tir; if n then goto 27;
 CURRENT MACROINST.: INSP 2
 
@@ -5985,7 +5607,7 @@ MBR: 32258
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 285 --- >
+< --- CLOCK CYCLE 267 --- >
 CURRENT MICROINST.: ac:=band(ir,amask); goto 0;
 CURRENT MACROINST.: INSP 2
 
@@ -6006,7 +5628,7 @@ MBR: 32258
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 286 --- >
+< --- CLOCK CYCLE 268 --- >
 CURRENT MICROINST.: mar:=pc; rd;
 CURRENT MACROINST.: INSP 2
 
@@ -6027,7 +5649,7 @@ MBR: 32258
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 287 --- >
+< --- CLOCK CYCLE 269 --- >
 CURRENT MICROINST.: pc:=pc+1; rd;
 CURRENT MACROINST.: INSP 2
 
@@ -6048,7 +5670,7 @@ MBR: 32258
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 288 --- >
+< --- CLOCK CYCLE 270 --- >
 CURRENT MICROINST.: ir:=mbr; if n then goto 28;
 CURRENT MACROINST.: INSP 2
 
@@ -6069,7 +5691,7 @@ MBR: -1
   E    : 0       F    : 0     
 #-----------------------------------------#
 
-< --- CLOCK CYCLE 289 --- >
+< --- CLOCK CYCLE 271 --- >
 CURRENT MICROINST.: tir:=lshift(ir+ir); if n then goto 40;
 CURRENT MACROINST.: HALT
 
