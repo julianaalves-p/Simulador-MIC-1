@@ -138,6 +138,7 @@ public class CPU {
         runSecondSubcycle();
         runThirdSubcycle();
         runFourthSubcycle();
+        saveCPUState();
     }
 
     public void nextMacro(){
@@ -150,6 +151,8 @@ public class CPU {
                 sameInstruction = false;
             }
         }
+
+        saveCPUState();
     }
 
     public void run() {
